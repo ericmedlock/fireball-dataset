@@ -1,0 +1,276 @@
+{
+  "dataset": "FIREBALL",
+  "total_files": 45,
+  "files": [
+    {
+      "filename": "fireball_part_001_of_045.json",
+      "records": 3443,
+      "size_bytes": 52058836,
+      "size_mb": 49.65
+    },
+    {
+      "filename": "fireball_part_002_of_045.json",
+      "records": 3443,
+      "size_bytes": 53046642,
+      "size_mb": 50.59
+    },
+    {
+      "filename": "fireball_part_003_of_045.json",
+      "records": 3443,
+      "size_bytes": 53692000,
+      "size_mb": 51.2
+    },
+    {
+      "filename": "fireball_part_004_of_045.json",
+      "records": 3443,
+      "size_bytes": 55348637,
+      "size_mb": 52.78
+    },
+    {
+      "filename": "fireball_part_005_of_045.json",
+      "records": 3443,
+      "size_bytes": 52675493,
+      "size_mb": 50.24
+    },
+    {
+      "filename": "fireball_part_006_of_045.json",
+      "records": 3443,
+      "size_bytes": 54621136,
+      "size_mb": 52.09
+    },
+    {
+      "filename": "fireball_part_007_of_045.json",
+      "records": 3443,
+      "size_bytes": 49414348,
+      "size_mb": 47.13
+    },
+    {
+      "filename": "fireball_part_008_of_045.json",
+      "records": 3443,
+      "size_bytes": 51728068,
+      "size_mb": 49.33
+    },
+    {
+      "filename": "fireball_part_009_of_045.json",
+      "records": 3443,
+      "size_bytes": 51594013,
+      "size_mb": 49.2
+    },
+    {
+      "filename": "fireball_part_010_of_045.json",
+      "records": 3443,
+      "size_bytes": 52942409,
+      "size_mb": 50.49
+    },
+    {
+      "filename": "fireball_part_011_of_045.json",
+      "records": 3443,
+      "size_bytes": 51294676,
+      "size_mb": 48.92
+    },
+    {
+      "filename": "fireball_part_012_of_045.json",
+      "records": 3443,
+      "size_bytes": 50989912,
+      "size_mb": 48.63
+    },
+    {
+      "filename": "fireball_part_013_of_045.json",
+      "records": 3443,
+      "size_bytes": 51134509,
+      "size_mb": 48.77
+    },
+    {
+      "filename": "fireball_part_014_of_045.json",
+      "records": 3443,
+      "size_bytes": 46233549,
+      "size_mb": 44.09
+    },
+    {
+      "filename": "fireball_part_015_of_045.json",
+      "records": 3443,
+      "size_bytes": 50290993,
+      "size_mb": 47.96
+    },
+    {
+      "filename": "fireball_part_016_of_045.json",
+      "records": 3443,
+      "size_bytes": 57734847,
+      "size_mb": 55.06
+    },
+    {
+      "filename": "fireball_part_017_of_045.json",
+      "records": 3443,
+      "size_bytes": 51470348,
+      "size_mb": 49.09
+    },
+    {
+      "filename": "fireball_part_018_of_045.json",
+      "records": 3443,
+      "size_bytes": 54729248,
+      "size_mb": 52.19
+    },
+    {
+      "filename": "fireball_part_019_of_045.json",
+      "records": 3443,
+      "size_bytes": 50796345,
+      "size_mb": 48.44
+    },
+    {
+      "filename": "fireball_part_020_of_045.json",
+      "records": 3443,
+      "size_bytes": 54744801,
+      "size_mb": 52.21
+    },
+    {
+      "filename": "fireball_part_021_of_045.json",
+      "records": 3443,
+      "size_bytes": 53631052,
+      "size_mb": 51.15
+    },
+    {
+      "filename": "fireball_part_022_of_045.json",
+      "records": 3443,
+      "size_bytes": 56368290,
+      "size_mb": 53.76
+    },
+    {
+      "filename": "fireball_part_023_of_045.json",
+      "records": 3443,
+      "size_bytes": 51390820,
+      "size_mb": 49.01
+    },
+    {
+      "filename": "fireball_part_024_of_045.json",
+      "records": 3443,
+      "size_bytes": 53513261,
+      "size_mb": 51.03
+    },
+    {
+      "filename": "fireball_part_025_of_045.json",
+      "records": 3443,
+      "size_bytes": 51712255,
+      "size_mb": 49.32
+    },
+    {
+      "filename": "fireball_part_026_of_045.json",
+      "records": 3443,
+      "size_bytes": 57631683,
+      "size_mb": 54.96
+    },
+    {
+      "filename": "fireball_part_027_of_045.json",
+      "records": 3443,
+      "size_bytes": 49977371,
+      "size_mb": 47.66
+    },
+    {
+      "filename": "fireball_part_028_of_045.json",
+      "records": 3443,
+      "size_bytes": 57027381,
+      "size_mb": 54.39
+    },
+    {
+      "filename": "fireball_part_029_of_045.json",
+      "records": 3443,
+      "size_bytes": 52410895,
+      "size_mb": 49.98
+    },
+    {
+      "filename": "fireball_part_030_of_045.json",
+      "records": 3443,
+      "size_bytes": 47613474,
+      "size_mb": 45.41
+    },
+    {
+      "filename": "fireball_part_031_of_045.json",
+      "records": 3443,
+      "size_bytes": 53257304,
+      "size_mb": 50.79
+    },
+    {
+      "filename": "fireball_part_032_of_045.json",
+      "records": 3443,
+      "size_bytes": 52751316,
+      "size_mb": 50.31
+    },
+    {
+      "filename": "fireball_part_033_of_045.json",
+      "records": 3443,
+      "size_bytes": 50925231,
+      "size_mb": 48.57
+    },
+    {
+      "filename": "fireball_part_034_of_045.json",
+      "records": 3443,
+      "size_bytes": 54302929,
+      "size_mb": 51.79
+    },
+    {
+      "filename": "fireball_part_035_of_045.json",
+      "records": 3443,
+      "size_bytes": 50110699,
+      "size_mb": 47.79
+    },
+    {
+      "filename": "fireball_part_036_of_045.json",
+      "records": 3443,
+      "size_bytes": 51760625,
+      "size_mb": 49.36
+    },
+    {
+      "filename": "fireball_part_037_of_045.json",
+      "records": 3443,
+      "size_bytes": 51214654,
+      "size_mb": 48.84
+    },
+    {
+      "filename": "fireball_part_038_of_045.json",
+      "records": 3443,
+      "size_bytes": 50273791,
+      "size_mb": 47.94
+    },
+    {
+      "filename": "fireball_part_039_of_045.json",
+      "records": 3443,
+      "size_bytes": 55836558,
+      "size_mb": 53.25
+    },
+    {
+      "filename": "fireball_part_040_of_045.json",
+      "records": 3443,
+      "size_bytes": 48963343,
+      "size_mb": 46.7
+    },
+    {
+      "filename": "fireball_part_041_of_045.json",
+      "records": 3443,
+      "size_bytes": 51144365,
+      "size_mb": 48.78
+    },
+    {
+      "filename": "fireball_part_042_of_045.json",
+      "records": 3443,
+      "size_bytes": 51374922,
+      "size_mb": 48.99
+    },
+    {
+      "filename": "fireball_part_043_of_045.json",
+      "records": 3443,
+      "size_bytes": 52879908,
+      "size_mb": 50.43
+    },
+    {
+      "filename": "fireball_part_044_of_045.json",
+      "records": 3443,
+      "size_bytes": 51055672,
+      "size_mb": 48.69
+    },
+    {
+      "filename": "fireball_part_045_of_045.json",
+      "records": 2337,
+      "size_bytes": 38122630,
+      "size_mb": 36.36
+    }
+  ]
+}

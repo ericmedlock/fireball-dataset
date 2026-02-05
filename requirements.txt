@@ -1,2 +1,5 @@
 jsonlines
 datasets
+tableauhyperapi>=0.0.18
+ijson>=3.2.0
+tqdm>=4.65.0

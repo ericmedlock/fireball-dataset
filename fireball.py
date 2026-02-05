@@ -228,24 +228,19 @@ if __name__ == "__main__":
     data_filenames = [line.strip() for line in files_response.text.split('\n') if line.strip()]
     
     print(f"Found {len(data_filenames)} data files")
-    print("Downloading and processing first 10 examples...")
+    print("Downloading and processing ALL examples...")
     
     all_data = []
     example_count = 0
-    max_examples = 10
     
-    # Process files until we have 10 examples
+    # Process all files
     for data_filename in data_filenames:
-        if example_count >= max_examples:
-            break
             
         data_url = url + "filtered/" + data_filename
         print(f"Downloading {data_filename}...")
         
         response = requests.get(data_url)
         for line in response.text.strip().split('\n'):
-            if example_count >= max_examples:
-                break
             if not line.strip():
                 continue
                 
