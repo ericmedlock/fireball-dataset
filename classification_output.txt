@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/Users/ericmedlock/Documents/GitHub/fireball-dataset/classify_characters.py", line 319, in main
+    classifier.classify_all()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ericmedlock/Documents/GitHub/fireball-dataset/classify_characters.py", line 227, in classify_all
+    classification, confidence = self.classify_character(char_id, name, class_val, race, appearances)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ericmedlock/Documents/GitHub/fireball-dataset/classify_characters.py", line 179, in classify_character
+    self.cursor.execute("""
+    ~~~~~~~~~~~~~~~~~~~^^^^
+        SELECT description
+        ^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        LIMIT 1
+        ^^^^^^^
+    """, (char_id,))
+    ^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: description
+✓ Connected to database: fireball.db
+✓ LM Studio available with models: qwen/qwen2.5-vl-7b, qwen2.5-3b-instruct, qwen3-4b-dnd
+
+============================================================
+CHARACTER CLASSIFICATION
+============================================================
+
+Characters to classify: 1,895
+LLM available: Yes
+
+
+✗ ERROR: no such column: description
+
+✓ Database connection closed

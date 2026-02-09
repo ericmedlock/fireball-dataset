@@ -37,7 +37,9 @@ class FireballDBLoader:
                 controller_id TEXT,
                 first_seen_action_id INTEGER,
                 last_seen_action_id INTEGER,
-                total_appearances INTEGER DEFAULT 0
+                total_appearances INTEGER DEFAULT 0,
+                character_type TEXT DEFAULT 'Unknown',
+                classification_confidence REAL DEFAULT 0.0
             )
         """)
         

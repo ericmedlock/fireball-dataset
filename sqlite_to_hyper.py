@@ -54,7 +54,9 @@ class SQLiteToHyperConverter:
                 TableDefinition.Column('controller_id', SqlType.text(), NULLABLE),
                 TableDefinition.Column('first_seen_action_id', SqlType.big_int(), NULLABLE),
                 TableDefinition.Column('last_seen_action_id', SqlType.big_int(), NULLABLE),
-                TableDefinition.Column('total_appearances', SqlType.big_int(), NULLABLE)
+                TableDefinition.Column('total_appearances', SqlType.big_int(), NULLABLE),
+                TableDefinition.Column('character_type', SqlType.text(), NULLABLE),
+                TableDefinition.Column('classification_confidence', SqlType.double(), NULLABLE)
             ]
         )
         
