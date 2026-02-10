@@ -1,0 +1,1017 @@
+{
+  "timestamp": "2026-02-10T09:52:57.955762",
+  "total_operations": 137,
+  "operations": [
+    {
+      "type": "race",
+      "character": "Werewolf",
+      "original": "Werewolf",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Staff of Temporal Reververations(Versatile)",
+      "cleaned": "Staff of Temporal Reververations",
+      "method": "heuristic",
+      "char_reduction": 11
+    },
+    {
+      "type": "attack",
+      "original": "Weapon Of The WarMage  (Nova Impulse Impact)",
+      "cleaned": "Weapon Of The WarMage",
+      "method": "heuristic",
+      "char_reduction": 23
+    },
+    {
+      "type": "attack",
+      "original": "Bow Of Magic Missiles (Weapon Of The WarMage)",
+      "cleaned": "Bow Of Magic Missiles",
+      "method": "heuristic",
+      "char_reduction": 24
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Dragon\u2019s Wrath Weapon (Ascendant)",
+      "cleaned": "2-Handed Dragon\u2019s Wrath Weapon",
+      "method": "heuristic",
+      "char_reduction": 12
+    },
+    {
+      "type": "race",
+      "character": "Arena Ashera",
+      "original": "Arena Ashera",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Darkness Incarnate",
+      "original": "Darkness Incarnate",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Meilian",
+      "original": "Meilian",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Graveyard of Certain Death (Costs 4 Actions",
+      "cleaned": "Graveyard of Certain Death (Costs 4 Acti",
+      "method": "heuristic",
+      "char_reduction": 3
+    },
+    {
+      "type": "attack",
+      "original": "Amethyst Dragon Breath (Dragon's Wrath Greatsword)",
+      "cleaned": "Amethyst Dragon Breath",
+      "method": "heuristic",
+      "char_reduction": 28
+    },
+    {
+      "type": "attack",
+      "original": "Transmuter's Stone - Lightning Resistance",
+      "cleaned": "Transmuter's Stone",
+      "method": "heuristic",
+      "char_reduction": 23
+    },
+    {
+      "type": "race",
+      "character": "Swarm of Cranium Rats",
+      "original": "Swarm of Cranium Rats",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Transmuter Wizard",
+      "original": "Transmuter Wizard",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Commoner",
+      "original": "Commoner",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Euphoria \"Euphie\"",
+      "original": "Tiefling, Bloodline of Mephistopheles",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Bakari, Ancient",
+      "original": "Bakari, Ancient",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "(3) [BURST] Automatic Rifle [Radiant Weapon]",
+      "cleaned": "(3) [BURST] Automatic Rifle [Radiant Wea",
+      "method": "heuristic",
+      "char_reduction": 4
+    },
+    {
+      "type": "race",
+      "character": "Grani",
+      "original": "Crimson Dragon \"Grani\"",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "(Mythic) Disaster Cannon (Costs 3 Actions)",
+      "cleaned": "(Mythic) Disaster Cannon",
+      "method": "heuristic",
+      "char_reduction": 18
+    },
+    {
+      "type": "race",
+      "character": "Magitek Armor",
+      "original": "Magitek Armor",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Scout",
+      "original": "Scout",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Adult Kruthik",
+      "original": "Adult Kruthik",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Nezumi",
+      "original": "Uturik \"Chinchillen\" Rathen",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Greater Zombie",
+      "original": "Greater Zombie",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Tentacle of the Deeps: Attack (Octavia Erlshade)",
+      "cleaned": "Tentacle of the Deeps: Attack",
+      "method": "heuristic",
+      "char_reduction": 19
+    },
+    {
+      "type": "race",
+      "character": "Silver Greatwyrm",
+      "original": "Silver Greatwyrm",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Wolf",
+      "original": "Wolf",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Polearm Master - Opportunity Attack (Kaska)",
+      "cleaned": "Polearm Master - Opportunity Attack",
+      "method": "heuristic",
+      "char_reduction": 8
+    },
+    {
+      "type": "race",
+      "character": "Rex",
+      "original": "eui2v3bi4m",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "God-Slayer (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "God-Slayer",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "Javelin of Lightning (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "Javelin of Lightning",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "King of Hearts (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "King of Hearts",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "Queen of Spades (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "Queen of Spades",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "Terror-Slayer (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "Terror-Slayer",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "Russian Hook (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "Russian Hook",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "his Dreadful Aura (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "his Dreadful Aura",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "Demoralization (Infirmi \"Shadow Soldier\" Stutlus \u2694)",
+      "cleaned": "Demoralization",
+      "method": "heuristic",
+      "char_reduction": 37
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Staff of Dunamancy (Udexon Insanis)",
+      "cleaned": "2-Handed Staff of Dunamancy",
+      "method": "heuristic",
+      "char_reduction": 17
+    },
+    {
+      "type": "race",
+      "character": "Daemogoth Titan",
+      "original": "Daemogoth Titan",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Tali",
+      "original": "Tali",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Air Elemental",
+      "original": "Air Elemental",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Astral Dreadnought",
+      "original": "Astral Dreadnought",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Enhanced Thunder Gauntlets (Kaylee (Arena))",
+      "cleaned": "Enhanced Thunder Gauntlets (Kaylee (Aren",
+      "method": "heuristic",
+      "char_reduction": 3
+    },
+    {
+      "type": "attack",
+      "original": "Forsaken Fables Greatsword of Frozen Wastes",
+      "cleaned": "Forsaken Fables Greatsword of Frozen Was",
+      "method": "heuristic",
+      "char_reduction": 3
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Whoopin' Stick (No Force Damage)",
+      "cleaned": "2-Handed Whoopin' Stick",
+      "method": "heuristic",
+      "char_reduction": 18
+    },
+    {
+      "type": "attack",
+      "original": "Infiltrator Armor: Lightning Launcher (DEX)",
+      "cleaned": "Infiltrator Armor: Lightning Launcher",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "race",
+      "character": "Iron Golem",
+      "original": "Iron Golem",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Draconic Shard",
+      "original": "Draconic Shard",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Puppet",
+      "original": "Puppet",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Dragon\u2019s Wrath Weapon (Slumbering)",
+      "cleaned": "2-Handed Dragon\u2019s Wrath Weapon",
+      "method": "heuristic",
+      "char_reduction": 13
+    },
+    {
+      "type": "attack",
+      "original": "Amethyst Dragon's Wrath Katana (Slumbering)",
+      "cleaned": "Amethyst Dragon's Wrath Katana",
+      "method": "heuristic",
+      "char_reduction": 13
+    },
+    {
+      "type": "attack",
+      "original": "Crystal Dragon's Wrath Wakizashi (Slumbering)",
+      "cleaned": "Crystal Dragon's Wrath Wakizashi",
+      "method": "heuristic",
+      "char_reduction": 13
+    },
+    {
+      "type": "attack",
+      "original": "Bonus Flame Tongue Double-Bladed Scimitar",
+      "cleaned": "Bonus Flame Tongue Double-Bladed Scimita",
+      "method": "heuristic",
+      "char_reduction": 1
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Black Dragon Head: Acid Breath",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 32
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Black Dragon Head: Bite",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Blue Dragon Head: Lightning Breath",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 36
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Green Dragon Head: Poison Breath",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 34
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Green Dragon Head: Bite",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: Red Dragon Head: Fire Breath",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 30
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: White Dragon Head: Cold Breath",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 32
+    },
+    {
+      "type": "attack",
+      "original": "Legendary Action: White Dragon Head: Bite",
+      "cleaned": "Legendary Action",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "race",
+      "character": "Tiamat",
+      "original": "Tiamat",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Darastrixethe - Dragon's Wrath Greatbow (Wakened)",
+      "cleaned": "Darastrixethe - Dragon's Wrath Greatbow",
+      "method": "heuristic",
+      "char_reduction": 10
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Darastrixethe - Dragon's Wrath Greatbow (Wakened)",
+      "cleaned": "2-Handed Darastrixethe",
+      "method": "heuristic",
+      "char_reduction": 36
+    },
+    {
+      "type": "attack",
+      "original": "Versatile Weapon Master - Opportunity Attack",
+      "cleaned": "Versatile Weapon Master",
+      "method": "heuristic",
+      "char_reduction": 21
+    },
+    {
+      "type": "race",
+      "character": "Lord Marrowrend",
+      "original": "Lord Marrowrend",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Rath Modar",
+      "original": "Rath Modar",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Dragonsoul",
+      "original": "Dragonsoul",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Shard of Asmodeus(w) with Crackling Leap (L-3)",
+      "cleaned": "Shard of Asmodeus(w) with Crackling Leap",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "attack",
+      "original": "Shard of Asmodeus(w) with Crackling Leap (L-2)",
+      "cleaned": "Shard of Asmodeus(w) with Crackling Leap",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "attack",
+      "original": "Shard of Asmodeus(w) with Crackling Leap (L-4)",
+      "cleaned": "Shard of Asmodeus(w) with Crackling Leap",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "race",
+      "character": "Pneuma",
+      "original": "Pneuma",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Boon of Peerless Aim [Twilight Realms - Epic Boon]",
+      "cleaned": "Boon of Peerless Aim [Twilight Realms",
+      "method": "heuristic",
+      "char_reduction": 13
+    },
+    {
+      "type": "attack",
+      "original": "Boon of The Elemental Archer [Twilight Realms - Epic Boon]",
+      "cleaned": "Boon of The Elemental Archer [Twilight R",
+      "method": "heuristic",
+      "char_reduction": 18
+    },
+    {
+      "type": "attack",
+      "original": "Memory of Minutes [Tactical Rifle] (Theia Stahl)",
+      "cleaned": "Memory of Minutes [Tactical Rifle]",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "attack",
+      "original": "Master Marksman [Definition] (Theia Stahl)",
+      "cleaned": "Master Marksman [Definition]",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "attack",
+      "original": "Boon of Peerless Aim [Twilight Realms - Epic Boon] (Theia Stahl)",
+      "cleaned": "Boon of Peerless Aim [Twilight Realms",
+      "method": "heuristic",
+      "char_reduction": 27
+    },
+    {
+      "type": "attack",
+      "original": "Boon of The Elemental Archer [Twilight Realms - Epic Boon] (Theia Stahl)",
+      "cleaned": "Boon of The Elemental Archer [Twilight R",
+      "method": "heuristic",
+      "char_reduction": 32
+    },
+    {
+      "type": "attack",
+      "original": "Ran Rifle: Take Down (10 charges) (Theia Stahl)",
+      "cleaned": "Ran Rifle: Take Down (10 charges)",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "attack",
+      "original": "Polaris Lance [Ran Rifle] *Automated* (Theia Stahl)",
+      "cleaned": "Polaris Lance [Ran Rifle] *Automated*",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "race",
+      "character": "Ochre Jelly",
+      "original": "Ochre Jelly",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Unarmed Strike (Danpher Sikar (Twilight))",
+      "cleaned": "Unarmed Strike (Danpher Sikar (Twilight)",
+      "method": "heuristic",
+      "char_reduction": 1
+    },
+    {
+      "type": "race",
+      "character": "Owl",
+      "original": "Owl",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Arming Sword (+3 Paradoxian Katana)",
+      "cleaned": "2-Handed Arming Sword",
+      "method": "heuristic",
+      "char_reduction": 23
+    },
+    {
+      "type": "attack",
+      "original": "Brand of Castigation - Brand of Tethering",
+      "cleaned": "Brand of Castigation",
+      "method": "heuristic",
+      "char_reduction": 21
+    },
+    {
+      "type": "race",
+      "character": "Kin",
+      "original": "w0xwk5y1wk",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Psychic Blades: Bonus Ranged Attack (DEX)",
+      "cleaned": "Psychic Blades: Bonus Ranged Attack",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "attack",
+      "original": "Psychic Blades: Bonus Ranged Attack (STR)",
+      "cleaned": "Psychic Blades: Bonus Ranged Attack",
+      "method": "heuristic",
+      "char_reduction": 6
+    },
+    {
+      "type": "race",
+      "character": "Mycena",
+      "original": "Draconic Spirit (Chromatic/Metallic)",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Draconic Spirit Breath Weapon (Mycah O'Nidd)",
+      "cleaned": "Draconic Spirit Breath Weapon",
+      "method": "heuristic",
+      "char_reduction": 15
+    },
+    {
+      "type": "race",
+      "character": "Charlie",
+      "original": "Veldaken [reflavor as Half elf]",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Lightning Arrow (Recharges after a Short or Long Rest)",
+      "cleaned": "Lightning Arrow",
+      "method": "heuristic",
+      "char_reduction": 39
+    },
+    {
+      "type": "race",
+      "character": "Bea",
+      "original": "wcjc3y2d8z",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Ekardica",
+      "original": "Ekardica",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Tale of the Avenger (Damage) (Bianca Clara Neves)",
+      "cleaned": "Tale of the Avenger (Damage)",
+      "method": "heuristic",
+      "char_reduction": 21
+    },
+    {
+      "type": "attack",
+      "original": "Staff of Flowers (1H) (Bianca Clara Neves)",
+      "cleaned": "Staff of Flowers (1H)",
+      "method": "heuristic",
+      "char_reduction": 21
+    },
+    {
+      "type": "attack",
+      "original": "Staff of Python (1H) (Bianca Clara Neves)",
+      "cleaned": "Staff of Python (1H)",
+      "method": "heuristic",
+      "char_reduction": 21
+    },
+    {
+      "type": "attack",
+      "original": "Weapon Of The WarMage  (Nova Lightning Impact)",
+      "cleaned": "Weapon Of The WarMage",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "race",
+      "character": "Aiofe",
+      "original": "Aiofe",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Barlgura",
+      "original": "Barlgura",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Allosaurus",
+      "original": "Allosaurus",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Panther",
+      "original": "Panther",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Mystic Arcanum: Tasha's Otherworldly Guise",
+      "cleaned": "Mystic Arcanum",
+      "method": "heuristic",
+      "char_reduction": 28
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Staff of the Woodlands (Mycah O'Nidd)",
+      "cleaned": "2-Handed Staff of the Woodlands",
+      "method": "heuristic",
+      "char_reduction": 15
+    },
+    {
+      "type": "attack",
+      "original": "Bag of Acid (0.001% power) (Reacharges on 5-6)",
+      "cleaned": "Bag of Acid (0.001% power)",
+      "method": "heuristic",
+      "char_reduction": 20
+    },
+    {
+      "type": "attack",
+      "original": "Needle of Mending (Percival Firn \"Pierce\")",
+      "cleaned": "Needle of Mending",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Clockwork Amulet (Percival Firn \"Pierce\")",
+      "cleaned": "Clockwork Amulet",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Grit Points - Critical Hit/Kill (Percival Firn \"Pierce\")",
+      "cleaned": "Grit Points - Critical Hit/Kill",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Boon of the Night Spirit (Percival Firn \"Pierce\")",
+      "cleaned": "Boon of the Night Spirit",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Fluorescence Mode (Percival Firn \"Pierce\")",
+      "cleaned": "Fluorescence Mode",
+      "method": "heuristic",
+      "char_reduction": 25
+    },
+    {
+      "type": "attack",
+      "original": "Dragon\u2019s Wrath Weapon (Wakened) (Jet Meadowwind)",
+      "cleaned": "Dragon\u2019s Wrath Weapon (Wakened)",
+      "method": "heuristic",
+      "char_reduction": 17
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Dragon\u2019s Wrath Weapon (Wakened) (Jet Meadowwind)",
+      "cleaned": "2-Handed Dragon\u2019s Wrath Weapon (Wakened)",
+      "method": "heuristic",
+      "char_reduction": 17
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Opal Ild Warhammer (Jet Meadowwind)",
+      "cleaned": "2-Handed Opal Ild Warhammer",
+      "method": "heuristic",
+      "char_reduction": 17
+    },
+    {
+      "type": "race",
+      "character": "Draconic Spirit",
+      "original": "Draconic Spirit",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Staff of the Woodlands (Nova Neverflower)",
+      "cleaned": "Staff of the Woodlands",
+      "method": "heuristic",
+      "char_reduction": 19
+    },
+    {
+      "type": "attack",
+      "original": "2-Handed Staff of the Woodlands (Nova Neverflower)",
+      "cleaned": "2-Handed Staff of the Woodlands",
+      "method": "heuristic",
+      "char_reduction": 19
+    },
+    {
+      "type": "attack",
+      "original": "Radiant Bow (Avenger Only) (DE's celestial spirit)",
+      "cleaned": "Radiant Bow (Avenger Only)",
+      "method": "heuristic",
+      "char_reduction": 24
+    },
+    {
+      "type": "attack",
+      "original": "Radiant Mace (Defender Only) (DE's celestial spirit)",
+      "cleaned": "Radiant Mace (Defender Only)",
+      "method": "heuristic",
+      "char_reduction": 24
+    },
+    {
+      "type": "attack",
+      "original": "Healing Touch (1/Day) (DE's celestial spirit)",
+      "cleaned": "Healing Touch (1/Day)",
+      "method": "heuristic",
+      "char_reduction": 24
+    },
+    {
+      "type": "race",
+      "character": "Soma",
+      "original": "Soma",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Bad News (Exandria) (Elenor Alvira (TTR))",
+      "cleaned": "Bad News (Exandria) (Elenor Alvira (TTR)",
+      "method": "heuristic",
+      "char_reduction": 1
+    },
+    {
+      "type": "attack",
+      "original": "Dagger of Blindsight (Elenor Alvira (TTR))",
+      "cleaned": "Dagger of Blindsight (Elenor Alvira (TTR",
+      "method": "heuristic",
+      "char_reduction": 2
+    },
+    {
+      "type": "attack",
+      "original": "Pistol (Exandria) [Violent Shot] (Elenor Alvira (TTR))",
+      "cleaned": "Pistol (Exandria) [Violent Shot] (Elenor",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "attack",
+      "original": "Pistol (Exandria) [Dazing Shot] (Elenor Alvira (TTR))",
+      "cleaned": "Pistol (Exandria) [Dazing Shot] (Elenor",
+      "method": "heuristic",
+      "char_reduction": 14
+    },
+    {
+      "type": "attack",
+      "original": "Bad News [Dazing Shot] (Elenor Alvira (TTR))",
+      "cleaned": "Bad News [Dazing Shot] (Elenor Alvira (T",
+      "method": "heuristic",
+      "char_reduction": 4
+    },
+    {
+      "type": "attack",
+      "original": "Tac Rifle [Dazing Shot] (Elenor Alvira (TTR))",
+      "cleaned": "Tac Rifle [Dazing Shot] (Elenor Alvira (",
+      "method": "heuristic",
+      "char_reduction": 5
+    },
+    {
+      "type": "attack",
+      "original": "himself while reconsidering his Life-Choices",
+      "cleaned": "himself while reconsidering his Life-Cho",
+      "method": "heuristic",
+      "char_reduction": 4
+    },
+    {
+      "type": "race",
+      "character": "Goblin",
+      "original": "Goblin",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Hill Giant",
+      "original": "Hill Giant",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Nilbog",
+      "original": "Nilbog",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "attack",
+      "original": "Hexblade Double-Bladed Scimitar (Bonus Action)",
+      "cleaned": "Hexblade Double-Bladed Scimitar",
+      "method": "heuristic",
+      "char_reduction": 15
+    },
+    {
+      "type": "race",
+      "character": "Standard Lighting Revenant",
+      "original": "Standard Lighting Revenant",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Skeleton Skullthrower",
+      "original": "Skeleton Skullthrower",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Skeleton Man-of-Arms",
+      "original": "Skeleton Man-of-Arms",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Steel Predator",
+      "original": "Steel Predator",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Ancient Red Dragon",
+      "original": "Ancient Red Dragon",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    },
+    {
+      "type": "race",
+      "character": "Ancient Bronze Dragon",
+      "original": "Ancient Bronze Dragon",
+      "cleaned": null,
+      "method": "heuristic",
+      "reason": "corrupt_nulled"
+    }
+  ]
+}

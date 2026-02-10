@@ -12,10 +12,121 @@ from typing import Dict, List, Tuple, Optional
 import sys
 
 class FireballDBLoader:
-    def __init__(self, db_path: str = "fireball.db"):
+    def __init__(self, db_path: str = "fireball.db", enable_llm_cleaning: bool = False):
         self.db_path = db_path
         self.conn = None
         self.cursor = None
+        self.enable_llm_cleaning = enable_llm_cleaning
+        self.cleaned_attacks_cache = {}  # Cache cleaned attack names
+        self.cleaned_races_cache = {}  # Cache cleaned race values
+        self.cleaning_log = []  # Log of all cleaning operations
+        
+        # Initialize OpenAI client if LLM cleaning enabled
+        if self.enable_llm_cleaning:
+            try:
+                from dotenv import load_dotenv
+                from openai import OpenAI
+                import os
+                load_dotenv()
+                self.openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+                self.openai_model = os.getenv('OPENAI_MODEL', 'gpt-4o-mini')
+                print("✓ LLM cleaning enabled (ChatGPT)")
+            except Exception as e:
+                print(f"⚠ LLM cleaning disabled: {e}")
+                self.enable_llm_cleaning = False
+        
+    def validate_race(self, character_name: str, race_value: str) -> Optional[str]:
+        """Validate and clean race field using heuristics."""
+        if not race_value or not race_value.strip():
+            return None
+        
+        race_value = race_value.strip()
+        
+        # Check cache first
+        cache_key = f"{character_name}|{race_value}"
+        if cache_key in self.cleaned_races_cache:
+            return self.cleaned_races_cache[cache_key]
+        
+        # Valid monster types that match their name
+        valid_monster_races = {
+            'Skeleton', 'Zombie', 'Ghost', 'Spirit', 'Werewolf', 'Vampire',
+            'Poltergeist', 'Nightwalker', 'Elemental', 'Dragon', 'Aboleth'
+        }
+        
+        # Heuristic validation rules
+        is_corrupt = (
+            (race_value == character_name and race_value not in valid_monster_races) or  # Race equals name (except valid monsters)
+            len(race_value) > 35 or  # Very long
+            bool(re.match(r'^[a-z0-9]{10,}$', race_value)) or  # Looks like ID
+            '"' in race_value or '[' in race_value  # Has quotes/brackets
+        )
+        
+        if is_corrupt:
+            self.cleaning_log.append({
+                'type': 'race',
+                'character': character_name,
+                'original': race_value,
+                'cleaned': None,
+                'method': 'heuristic',
+                'reason': 'corrupt_nulled'
+            })
+            self.cleaned_races_cache[cache_key] = None
+            return None
+        
+        # Accept as valid
+        self.cleaned_races_cache[cache_key] = race_value
+        return race_value
+    
+    def validate_attack_name(self, attack_name: str) -> str:
+        """Validate and clean attack name using heuristics."""
+        if not attack_name or not attack_name.strip():
+            return attack_name
+        
+        attack_name = attack_name.strip()
+        
+        # Check cache first
+        if attack_name in self.cleaned_attacks_cache:
+            return self.cleaned_attacks_cache[attack_name]
+        
+        # If attack name is reasonable length, accept it
+        if len(attack_name) <= 40:
+            self.cleaned_attacks_cache[attack_name] = attack_name
+            return attack_name
+        
+        # Attack is suspiciously long - apply simple heuristic cleaning
+        cleaned = self._clean_attack_heuristic(attack_name)
+        
+        self.cleaning_log.append({
+            'type': 'attack',
+            'original': attack_name,
+            'cleaned': cleaned,
+            'method': 'heuristic',
+            'char_reduction': len(attack_name) - len(cleaned)
+        })
+        
+        self.cleaned_attacks_cache[attack_name] = cleaned
+        return cleaned
+    
+    def _clean_attack_heuristic(self, attack_name: str) -> str:
+        """Apply simple heuristic rules to clean attack name."""
+        # Remove character names in parentheses at the end
+        cleaned = re.sub(r'\s*\([^)]*\)\s*$', '', attack_name)
+        
+        # Remove descriptive text after dash/colon if result is still long
+        if len(cleaned) > 40:
+            # Try splitting on ' - ' or ': ' and take first part
+            for sep in [' - ', ': ']:
+                if sep in cleaned:
+                    parts = cleaned.split(sep)
+                    if len(parts[0]) >= 10:  # Keep only if substantial
+                        cleaned = parts[0]
+                        break
+        
+        # If still too long, return first 40 chars
+        if len(cleaned) > 40:
+            cleaned = cleaned[:40].strip()
+        
+        return cleaned.strip()
         
     def connect(self):
         """Create database connection."""
@@ -223,8 +334,13 @@ class FireballDBLoader:
         return self.cursor.lastrowid
         
     def get_or_create_attack(self, attack_name: str) -> int:
-        """Get attack_id or create new attack."""
+        """Get attack_id or create new attack (with validation)."""
         attack_name = attack_name.strip()
+        if not attack_name:
+            return None
+        
+        # Validate and clean attack name
+        attack_name = self.validate_attack_name(attack_name)
         if not attack_name:
             return None
             
@@ -290,6 +406,12 @@ class FireballDBLoader:
         # Parse class
         class_primary, class_level = self.parse_class(character_data.get('class'))
         
+        # Validate race before inserting snapshot
+        race_value = self.validate_race(
+            character_data['name'],
+            character_data.get('race')
+        )
+        
         # Insert snapshot
         self.cursor.execute("""
             INSERT INTO character_snapshots (
@@ -301,7 +423,7 @@ class FireballDBLoader:
             action_id, character_id, snapshot_type,
             hp_current, hp_max, hp_pct, health_status,
             character_data.get('class'), class_primary, class_level,
-            character_data.get('race'), character_data.get('controller_id')
+            race_value, character_data.get('controller_id')
         ))
         snapshot_id = self.cursor.lastrowid
         
@@ -666,8 +788,41 @@ class FireballDBLoader:
         print(f"  - {class_count:,} characters with class data")
         print(f"  - {appearance_count:,} characters with appearance counts")
     
+    def save_cleaning_log(self, log_file: str = "data_cleaning_log.json"):
+        """Save cleaning operations log to file."""
+        if not self.cleaning_log:
+            return
+        
+        import json
+        from datetime import datetime
+        
+        log_data = {
+            'timestamp': datetime.now().isoformat(),
+            'total_operations': len(self.cleaning_log),
+            'operations': self.cleaning_log
+        }
+        
+        with open(log_file, 'w') as f:
+            json.dump(log_data, f, indent=2)
+        
+        # Print summary
+        races_cleaned = sum(1 for op in self.cleaning_log if op['type'] == 'race')
+        attacks_cleaned = sum(1 for op in self.cleaning_log if op['type'] == 'attack')
+        
+        if races_cleaned or attacks_cleaned:
+            print(f"\n✓ Data Cleaning Summary:")
+            if races_cleaned:
+                print(f"  - Races cleaned/nulled: {races_cleaned}")
+            if attacks_cleaned:
+                total_reduction = sum(op.get('char_reduction', 0) for op in self.cleaning_log if op['type'] == 'attack')
+                print(f"  - Attacks cleaned: {attacks_cleaned} (-{total_reduction} chars total)")
+            print(f"  - Log saved: {log_file}")
+    
     def close(self):
         """Close database connection."""
+        # Save cleaning log before closing
+        self.save_cleaning_log()
+        
         if self.conn:
             self.conn.close()
             print(f"\n✓ Database connection closed")
@@ -676,30 +831,40 @@ def main():
     """Main execution."""
     # Configuration
     db_path = "fireball.db"
-    json_file = "output/split/fireball_part_001_of_045.json"
+    
+    # Allow command line argument for JSON file, or default to first file
+    if len(sys.argv) > 1:
+        json_file = sys.argv[1]
+        # Don't remove DB if loading additional files
+        remove_db = False
+    else:
+        json_file = "output/split/fireball_part_001_of_045.json"
+        remove_db = True
     
     print("="*60)
     print("FIREBALL Dataset → SQLite Loader")
     print("="*60)
+    print(f"Loading: {json_file}")
     
-    # Remove existing database
+    # Remove existing database only on initial load
     db_file = Path(db_path)
-    if db_file.exists():
+    if remove_db and db_file.exists():
         print(f"\n⚠ Removing existing database: {db_path}")
         db_file.unlink()
     
-    # Initialize loader
-    loader = FireballDBLoader(db_path)
+    # Initialize loader with data cleaning enabled
+    loader = FireballDBLoader(db_path, enable_llm_cleaning=False)
     
     try:
-        # Connect and create schema
+        # Connect and create schema (if needed)
         loader.connect()
-        loader.create_schema()
+        if remove_db:
+            loader.create_schema()
         
         # Load data
         loader.load_json_file(json_file)
         
-        # Post-process character aggregates
+        # Post-process character aggregates (always run to update)
         loader.populate_character_aggregates()
         
         # Verify integrity

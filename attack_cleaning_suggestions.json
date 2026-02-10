@@ -1,0 +1,982 @@
+[
+  {
+    "attack_id": 2052,
+    "original_name": "7 Book of Harmony - an arrangement of any parallel narratives which presents a single continuous narrative",
+    "original_length": 106,
+    "cleaned_name": "Book of Harmony",
+    "cleaned_length": 15,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Book of Harmony\" without any additional modifiers or explanations that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2050,
+    "original_name": "5 Book of Betrayal - the action of treachery against that which was supposed to be loyal to",
+    "original_length": 91,
+    "cleaned_name": "Book of Betrayal",
+    "cleaned_length": 16,
+    "confidence": 90,
+    "reasoning": "The attack name is a unique title that does not refer to a traditional weapon but is treated as an attack name in this context.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2054,
+    "original_name": "9 Book of Destiny - the hidden power believed to control what will happen in the future",
+    "original_length": 87,
+    "cleaned_name": "Book of Destiny",
+    "cleaned_length": 15,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, as it is the primary focus of the verbose description without any additional modifiers or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2046,
+    "original_name": "1 Book of Secrets - not known or seen or not meant to be known or seen by others",
+    "original_length": 80,
+    "cleaned_name": "Book of Secrets",
+    "cleaned_length": 15,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Book of Secrets\" without any additional modifiers or explanations that need to be removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2049,
+    "original_name": "4 Book of Lies - false statement made with deliberate intent to deceive",
+    "original_length": 71,
+    "cleaned_name": "Book of Lies",
+    "cleaned_length": 12,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Book of Lies,\" with no additional modifiers or explanations that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2053,
+    "original_name": "8 Book of War - intense armed conflict between two or more entities",
+    "original_length": 67,
+    "cleaned_name": "Book of War",
+    "cleaned_length": 11,
+    "confidence": 90,
+    "reasoning": "The attack name is primarily focused on the term \"Book of War,\" which is likely the weapon or attack name, while the rest of the phrase describes the context of its use.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1320,
+    "original_name": "2-Handed Because Avrae autorolls Staff of Power extra damage",
+    "original_length": 60,
+    "cleaned_name": "Staff of Power (2-Handed)",
+    "cleaned_length": 25,
+    "confidence": 95,
+    "reasoning": "The attack name includes \"2-Handed,\" which is mechanically important, and the weapon name is clearly \"Staff of Power.\" The extraneous text about Avrae autorolling was removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1174,
+    "original_name": "2-Handed Dragon\u2019s Wrath Weapon (Wakened) (Tactus Qi Lune)",
+    "original_length": 57,
+    "cleaned_name": "Dragon\u2019s Wrath Weapon (2-Handed)",
+    "cleaned_length": 32,
+    "confidence": 90,
+    "reasoning": "The attack name includes \"2-Handed,\" which is mechanically important, and \"Dragon\u2019s Wrath Weapon\" is the primary name of the weapon. The additional details in parentheses are removed as per the rules.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2329,
+    "original_name": "Radiant Mace (Defender Only) (Avenger Celestial Spirit 1)",
+    "original_length": 57,
+    "cleaned_name": "Radiant Mace",
+    "cleaned_length": 12,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Radiant Mace,\" and all extraneous information in parentheses has been removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 364,
+    "original_name": "Grit Points - Critical Hit/Kill (Percival Firn \"Pierce\")",
+    "original_length": 56,
+    "cleaned_name": "\"Pierce\"",
+    "cleaned_length": 8,
+    "confidence": 90,
+    "reasoning": "The attack name includes the weapon name \"Pierce\" as part of the critical hit description, and there are no additional modifiers or character names that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2328,
+    "original_name": "Radiant Bow (Avenger Only) (Avenger Celestial Spirit 1)",
+    "original_length": 55,
+    "cleaned_name": "Radiant Bow",
+    "cleaned_length": 11,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Radiant Bow,\" and all extraneous information in parentheses has been removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2360,
+    "original_name": "Frightful Presence (Spenser the Ancient Silver Dragon)",
+    "original_length": 54,
+    "cleaned_name": "Frightful Presence",
+    "cleaned_length": 18,
+    "confidence": 90,
+    "reasoning": "The attack name is a specific ability of the dragon, and while it doesn't fit the typical weapon format, it is a recognized attack in D&D.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1997,
+    "original_name": "Stirring Dragon-Touched Focus (Metallic) (Etri Feiro)",
+    "original_length": 53,
+    "cleaned_name": "Stirring Dragon-Touched Focus",
+    "cleaned_length": 29,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, removing the character name in parentheses while retaining the important modifiers.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2359,
+    "original_name": "Paralyzing Breath (Spenser the Ancient Silver Dragon)",
+    "original_length": 53,
+    "cleaned_name": "Paralyzing Breath",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is clear and does not contain any player notes or character names, making it straightforward to extract the weapon/attack name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 769,
+    "original_name": "Guardian Armor: Thunder Gauntlets (STR) (Luna Aegis)",
+    "original_length": 52,
+    "cleaned_name": "Thunder Gauntlets",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name primarily consists of the weapon name \"Thunder Gauntlets,\" and the additional descriptors in parentheses do not alter the core name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1862,
+    "original_name": "2-Handed Crashing Falls (Ludwick Vern Velowim(PLUS))",
+    "original_length": 52,
+    "cleaned_name": "2-Handed Crashing Falls",
+    "cleaned_length": 23,
+    "confidence": 90,
+    "reasoning": "\"2-Handed\" is retained as it indicates the attack's mechanics, and \"Crashing Falls\" is the attack name. The character name and additional notes were removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2293,
+    "original_name": "Radiant Mace (Defender Only) (DE's celestial spirit)",
+    "original_length": 52,
+    "cleaned_name": "Radiant Mace",
+    "cleaned_length": 12,
+    "confidence": 95,
+    "reasoning": "The attack name is clearly identified as \"Radiant Mace,\" and the additional details in parentheses do not affect the weapon name itself.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2575,
+    "original_name": "Legendary Action: Blue Dragon Head: Lightning Breath",
+    "original_length": 52,
+    "cleaned_name": "Legendary Action: Lightning Breath",
+    "cleaned_length": 34,
+    "confidence": 100,
+    "reasoning": "The attack name is a legendary action, and the relevant attack name \"Lightning Breath\" is extracted while removing unnecessary details.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1079,
+    "original_name": "Legendary Action - Draconic Coalescence (3 actions)",
+    "original_length": 51,
+    "cleaned_name": "Legendary Action: Draconic Coalescence",
+    "cleaned_length": 38,
+    "confidence": 100,
+    "reasoning": "The attack name is a legendary action, and \"Draconic Coalescence\" is the specific attack name without any extraneous information.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1319,
+    "original_name": "Because Avrae autorolls Staff of Power extra damage",
+    "original_length": 51,
+    "cleaned_name": "Staff of Power",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The original attack name contained the weapon name \"Staff of Power\" with additional context that was removed, and no important modifiers or explanations were present.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3046,
+    "original_name": "wrist crossbow (grabling hook) (Solanna Bellanaris)",
+    "original_length": 51,
+    "cleaned_name": "Wrist Crossbow (Grappling Hook)",
+    "cleaned_length": 31,
+    "confidence": 90,
+    "reasoning": "The weapon name \"Wrist Crossbow\" is retained, and the important modifier \"Grappling Hook\" is included as it specifies the type of attack. The character name is removed as per the rules.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1994,
+    "original_name": "2-Handed Nine Lives Stealer Longsword (Etri Feiro)",
+    "original_length": 50,
+    "cleaned_name": "Nine Lives Stealer Longsword",
+    "cleaned_length": 28,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon type \"Longsword\" and the important modifier \"Nine Lives Stealer,\" while removing the character name in parentheses. The \"2-Handed\" modifier is not included as it does not change the weapon type or damage mechanics.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2292,
+    "original_name": "Radiant Bow (Avenger Only) (DE's celestial spirit)",
+    "original_length": 50,
+    "cleaned_name": "Radiant Bow",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The attack name is clearly identified as \"Radiant Bow,\" and the additional details in parentheses do not affect the weapon name itself.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2362,
+    "original_name": "Chilling Winds (Spenser the Ancient Silver Dragon)",
+    "original_length": 50,
+    "cleaned_name": "Chilling Winds",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original without any extraneous details or character names.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2577,
+    "original_name": "Legendary Action: Green Dragon Head: Poison Breath",
+    "original_length": 50,
+    "cleaned_name": "Legendary Action: Poison Breath",
+    "cleaned_length": 31,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action that specifies the type of breath attack without additional modifiers or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2316,
+    "original_name": "2-Handed Staff of Swarming Insects (Marius Graal)",
+    "original_length": 49,
+    "cleaned_name": "Staff of Swarming Insects",
+    "cleaned_length": 25,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted by removing the character name in parentheses while retaining the important weapon name. The \"2-Handed\" modifier is not included as it does not affect the weapon's identity.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1173,
+    "original_name": "Dragon\u2019s Wrath Weapon (Wakened) (Tactus Qi Lune)",
+    "original_length": 48,
+    "cleaned_name": "Dragon\u2019s Wrath Weapon (Wakened)",
+    "cleaned_length": 31,
+    "confidence": 90,
+    "reasoning": "The attack name includes \"Dragon\u2019s Wrath Weapon\" which is the primary name, and \"Wakened\" is a modifier that is important to the weapon's identity.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2429,
+    "original_name": "2-Handed Frenzied blaze (Flame Tongue Longsword)",
+    "original_length": 48,
+    "cleaned_name": "Flame Tongue Longsword (2-Handed)",
+    "cleaned_length": 33,
+    "confidence": 95,
+    "reasoning": "The attack name includes a specific weapon name with a modifier indicating its type (2-Handed), which is relevant for mechanics.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2573,
+    "original_name": "Legendary Action: Black Dragon Head: Acid Breath",
+    "original_length": 48,
+    "cleaned_name": "Legendary Action: Acid Breath",
+    "cleaned_length": 29,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action that specifies the type of breath attack without any extraneous details or player notes.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2581,
+    "original_name": "Legendary Action: White Dragon Head: Cold Breath",
+    "original_length": 48,
+    "cleaned_name": "Legendary Action: Cold Breath",
+    "cleaned_length": 29,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action, and \"Cold Breath\" is the specific attack being referenced.",
+    "status": "success"
+  },
+  {
+    "attack_id": 714,
+    "original_name": "Boon of Omega Immortality: Alternate Death Save",
+    "original_length": 47,
+    "cleaned_name": "Boon of Omega Immortality",
+    "cleaned_length": 25,
+    "confidence": 90,
+    "reasoning": "The attack name does not refer to a specific weapon or attack type but rather a boon, which is a form of magical effect rather than a physical weapon.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1866,
+    "original_name": "2-Handed Warhammer (Ludwick Vern Velowim(PLUS))",
+    "original_length": 47,
+    "cleaned_name": "2-Handed Warhammer",
+    "cleaned_length": 18,
+    "confidence": 90,
+    "reasoning": "The term \"2-Handed\" is retained as it indicates the weapon's mechanics, and \"Warhammer\" is the actual weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2048,
+    "original_name": "3 Book of Mayhem - violent or damaging disorder",
+    "original_length": 47,
+    "cleaned_name": "Book of Mayhem",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original without any additional modifiers or explanations, as \"Book of Mayhem\" is the primary name of the weapon/attack.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2358,
+    "original_name": "Cold Breath (Spenser the Ancient Silver Dragon)",
+    "original_length": 47,
+    "cleaned_name": "Cold Breath",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The attack name is a specific breath weapon associated with the dragon type, and no extraneous information was included that needed to be removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2361,
+    "original_name": "Wing Attack (Spenser the Ancient Silver Dragon)",
+    "original_length": 47,
+    "cleaned_name": "Wing Attack",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The attack name is straightforward and does not include any extraneous information or modifiers.",
+    "status": "success"
+  },
+  {
+    "attack_id": 203,
+    "original_name": "Shard of Asmodeus(w) with Crackling Leap (L-3)",
+    "original_length": 46,
+    "cleaned_name": "Shard of Asmodeus",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, removing the unnecessary details in parentheses while retaining the main weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 204,
+    "original_name": "Shard of Asmodeus(w) with Crackling Leap (L-2)",
+    "original_length": 46,
+    "cleaned_name": "Shard of Asmodeus",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, removing the unnecessary details in parentheses while retaining the important weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 205,
+    "original_name": "Shard of Asmodeus(w) with Crackling Leap (L-4)",
+    "original_length": 46,
+    "cleaned_name": "Shard of Asmodeus",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, as it is the primary weapon name without any additional player notes or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 468,
+    "original_name": "Hexblade Double-Bladed Scimitar (Bonus Action)",
+    "original_length": 46,
+    "cleaned_name": "Hexblade Double-Bladed Scimitar",
+    "cleaned_length": 31,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, removing the bonus action note while retaining the full weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2047,
+    "original_name": "2 Book of Peril - serious and immediate danger",
+    "original_length": 46,
+    "cleaned_name": "Book of Peril",
+    "cleaned_length": 13,
+    "confidence": 90,
+    "reasoning": "The attack name is extracted directly from the original, as it appears to be the weapon or attack name without additional modifiers or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2579,
+    "original_name": "Legendary Action: Red Dragon Head: Fire Breath",
+    "original_length": 46,
+    "cleaned_name": "Legendary Action: Fire Breath",
+    "cleaned_length": 29,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action that specifies the type of breath attack without additional modifiers or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3044,
+    "original_name": "Nine Lives Stealer Rapier (Solanna Bellanaris)",
+    "original_length": 46,
+    "cleaned_name": "Nine Lives Stealer Rapier",
+    "cleaned_length": 25,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon name \"Nine Lives Stealer Rapier\" without any extraneous information or character names.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1860,
+    "original_name": "Spiritual Weapon (Ludwick Vern Velowim(PLUS))",
+    "original_length": 45,
+    "cleaned_name": "Spiritual Weapon",
+    "cleaned_length": 16,
+    "confidence": 95,
+    "reasoning": "The attack name is a specific spell name in D&D, and no additional modifiers or player notes are present.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2123,
+    "original_name": "Whirlwind (Creature) (Air Elemental (Damian))",
+    "original_length": 45,
+    "cleaned_name": "Whirlwind",
+    "cleaned_length": 9,
+    "confidence": 95,
+    "reasoning": "The attack name is clearly identified as \"Whirlwind,\" which is a specific attack or ability, and the additional details in parentheses are not relevant to the weapon or attack name itself.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2233,
+    "original_name": "2-Handed Staff of the Woodlands (Nymeria (A))",
+    "original_length": 45,
+    "cleaned_name": "Staff of the Woodlands",
+    "cleaned_length": 22,
+    "confidence": 95,
+    "reasoning": "The attack name includes a specific weapon name, and the character name in parentheses was removed as per the rules. The \"2-Handed\" modifier is not included as it does not affect the weapon's identity.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2294,
+    "original_name": "Healing Touch (1/Day) (DE's celestial spirit)",
+    "original_length": 45,
+    "cleaned_name": "Healing Touch",
+    "cleaned_length": 13,
+    "confidence": 95,
+    "reasoning": "The attack name is a specific ability and does not contain any player notes or character names, making it the primary name of the attack.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2562,
+    "original_name": "Silvered Ebony Longbow +2 (Keahorn Dalanthan)",
+    "original_length": 45,
+    "cleaned_name": "Silvered Ebony Longbow +2",
+    "cleaned_length": 25,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon type \"Longbow\" and retains the important modifier \"+2\", while removing the character name in parentheses.",
+    "status": "success"
+  },
+  {
+    "attack_id": 607,
+    "original_name": "Versatile Weapon Master - Opportunity Attack",
+    "original_length": 44,
+    "cleaned_name": "Opportunity Attack",
+    "cleaned_length": 18,
+    "confidence": 90,
+    "reasoning": "The attack name specifies the type of attack without additional modifiers or character names, making it clear and concise.",
+    "status": "success"
+  },
+  {
+    "attack_id": 657,
+    "original_name": "DI Blunderbuss (Arty Repeating Shot Infused)",
+    "original_length": 44,
+    "cleaned_name": "Blunderbuss",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The attack name primarily consists of the weapon name \"Blunderbuss,\" and the additional descriptors in parentheses do not alter the core weapon name itself.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1987,
+    "original_name": "2-Handed Flame Tongue Longsword (Etri Feiro)",
+    "original_length": 44,
+    "cleaned_name": "Flame Tongue Longsword (2-Handed)",
+    "cleaned_length": 33,
+    "confidence": 95,
+    "reasoning": "The attack name includes a specific weapon type (\"Longsword\") and a magical modifier (\"Flame Tongue\"). \"2-Handed\" is retained as it indicates a mechanical aspect of the weapon.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1989,
+    "original_name": "2-Handed Giant Slayer Longsword (Etri Feiro)",
+    "original_length": 44,
+    "cleaned_name": "\"Giant Slayer Longsword\"",
+    "cleaned_length": 24,
+    "confidence": 95,
+    "reasoning": "The attack name includes a specific weapon type (\"Longsword\") and an important modifier (\"Giant Slayer\"), which is relevant to its mechanics. The character name in parentheses was removed as per the rules.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2299,
+    "original_name": "Spell Storing Item (Cure Wounds) (Leon Rose)",
+    "original_length": 44,
+    "cleaned_name": "Cure Wounds",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The attack name is derived from a spell, and \"Cure Wounds\" is the actual name of the spell being referenced. The additional details in parentheses are not part of the weapon or attack name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2567,
+    "original_name": "Arrow of Slaying (Fiend) (Keahorn Dalanthan)",
+    "original_length": 44,
+    "cleaned_name": "Arrow of Slaying (Fiend)",
+    "cleaned_length": 24,
+    "confidence": 95,
+    "reasoning": "The attack name is clearly identified as \"Arrow of Slaying\" with a specific target type (Fiend) that does not alter the weapon name itself.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2859,
+    "original_name": "himself while reconsidering his Life-Choices",
+    "original_length": 44,
+    "cleaned_name": "Unarmed Strike",
+    "cleaned_length": 14,
+    "confidence": 100,
+    "reasoning": "The original attack name does not contain any weapon or attack name, but \"Unarmed Strike\" is a standard attack in D&D.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3045,
+    "original_name": "Rapier of Life Stealing (Solanna Bellanaris)",
+    "original_length": 44,
+    "cleaned_name": "Rapier of Life Stealing",
+    "cleaned_length": 23,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as a weapon with a specific modifier, and there are no extraneous details to remove.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3095,
+    "original_name": "2-Handed Arming Sword (+3 Paradoxian Katana)",
+    "original_length": 44,
+    "cleaned_name": "2-Handed Arming Sword",
+    "cleaned_length": 21,
+    "confidence": 90,
+    "reasoning": "The attack name includes \"2-Handed,\" which is mechanically important for distinguishing the weapon type, and \"Arming Sword\" is the actual weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 207,
+    "original_name": "Shard of Asmodeus with Crackling Leap (L-4)",
+    "original_length": 43,
+    "cleaned_name": "Shard of Asmodeus",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is clearly identified as \"Shard of Asmodeus,\" and there are no additional modifiers or player notes that need to be removed. The \"(L-4)\" is not part of the weapon name and is thus excluded.",
+    "status": "success"
+  },
+  {
+    "attack_id": 208,
+    "original_name": "Shard of Asmodeus with Crackling Leap (L-3)",
+    "original_length": 43,
+    "cleaned_name": "Shard of Asmodeus",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, as it is the primary weapon name without any additional player notes or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 503,
+    "original_name": "Infiltrator Armor: Lightning Launcher (DEX)",
+    "original_length": 43,
+    "cleaned_name": "Lightning Launcher",
+    "cleaned_length": 18,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original without any additional context or modifiers that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 836,
+    "original_name": "Polearm Master - Opportunity Attack (Kaska)",
+    "original_length": 43,
+    "cleaned_name": "Polearm Master - Opportunity Attack",
+    "cleaned_length": 35,
+    "confidence": 90,
+    "reasoning": "The attack name indicates a specific type of attack associated with the Polearm Master feat, which is relevant in D&D combat, but does not specify a unique weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1088,
+    "original_name": "2-Handed Staff of Dunamancy (Weapon Master)",
+    "original_length": 43,
+    "cleaned_name": "Staff of Dunamancy",
+    "cleaned_length": 18,
+    "confidence": 95,
+    "reasoning": "The attack name is clear and does not contain any player notes or explanations, and \"2-Handed\" is not mechanically important for this weapon.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1821,
+    "original_name": "2-Handed Dragon\u2019s Wrath Weapon (Slumbering)",
+    "original_length": 43,
+    "cleaned_name": "Dragon\u2019s Wrath Weapon (2-Handed)",
+    "cleaned_length": 32,
+    "confidence": 90,
+    "reasoning": "The attack name includes \"2-Handed,\" which is mechanically important, and \"Dragon\u2019s Wrath\" is the weapon name. The term \"Weapon\" is retained as it is part of the name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1861,
+    "original_name": "Crashing Falls (Ludwick Vern Velowim(PLUS))",
+    "original_length": 43,
+    "cleaned_name": "Crashing Falls",
+    "cleaned_length": 14,
+    "confidence": 90,
+    "reasoning": "The attack name is extracted directly from the original, as it appears to be the primary name of the attack without any additional modifiers or player notes.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1867,
+    "original_name": "Unarmed Strike (Ludwick Vern Velowim(PLUS))",
+    "original_length": 43,
+    "cleaned_name": "Unarmed Strike",
+    "cleaned_length": 14,
+    "confidence": 100,
+    "reasoning": "The attack name is straightforward and contains no extraneous information or modifiers that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2124,
+    "original_name": "Whirlwind (Object) (Air Elemental (Damian))",
+    "original_length": 43,
+    "cleaned_name": "Whirlwind",
+    "cleaned_length": 9,
+    "confidence": 95,
+    "reasoning": "The attack name \"Whirlwind\" is the primary weapon/attack name, and the additional details in parentheses are not relevant to the extraction.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2561,
+    "original_name": "Silver Filigree Longbow (Keahorn Dalanthan)",
+    "original_length": 43,
+    "cleaned_name": "Silver Filigree Longbow",
+    "cleaned_length": 23,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon type \"Longbow\" and a modifier \"Silver Filigree,\" which is relevant to the weapon's properties. The character name in parentheses was removed as per the rules.",
+    "status": "success"
+  },
+  {
+    "attack_id": 352,
+    "original_name": "Needle of Mending (Percival Firn \"Pierce\")",
+    "original_length": 42,
+    "cleaned_name": "Needle of Mending",
+    "cleaned_length": 17,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, as it is the primary weapon/attack name without any player notes or character names.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1078,
+    "original_name": "Legendary Action - Wing Attack (2 actions)",
+    "original_length": 42,
+    "cleaned_name": "Legendary Action: Wing Attack",
+    "cleaned_length": 29,
+    "confidence": 100,
+    "reasoning": "The attack name is a legendary action, and \"Wing Attack\" is the specific attack being performed, with no additional modifiers or explanations present.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1817,
+    "original_name": "Amethyst Dragon Wrath Longbow (Slumbering)",
+    "original_length": 42,
+    "cleaned_name": "Amethyst Dragon Wrath Longbow",
+    "cleaned_length": 29,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon type \"Longbow\" and a specific name \"Amethyst Dragon Wrath,\" which is important for identification, while the parenthetical note is removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2339,
+    "original_name": "Dragon\u2019s Wrath Rapier (Slumbering/Radiant)",
+    "original_length": 42,
+    "cleaned_name": "Dragon\u2019s Wrath Rapier",
+    "cleaned_length": 21,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon type \"Rapier\" and the name \"Dragon\u2019s Wrath,\" which is a significant modifier, while the additional descriptors in parentheses are removed as per the rules.",
+    "status": "success"
+  },
+  {
+    "attack_id": 359,
+    "original_name": "Clockwork Amulet (Percival Firn \"Pierce\")",
+    "original_length": 41,
+    "cleaned_name": "\"Pierce\"",
+    "cleaned_length": 8,
+    "confidence": 90,
+    "reasoning": "The attack name is extracted directly from the original, as it appears to be the actual name of the attack without any additional modifiers or player notes.",
+    "status": "success"
+  },
+  {
+    "attack_id": 383,
+    "original_name": "Brand of Castigation - Brand of Tethering",
+    "original_length": 41,
+    "cleaned_name": "Brand of Tethering",
+    "cleaned_length": 18,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original verbose name, focusing on the relevant weapon/attack name while removing unnecessary details.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1077,
+    "original_name": "Legendary Action - Change Type (1 action)",
+    "original_length": 41,
+    "cleaned_name": "Legendary Action: Change Type",
+    "cleaned_length": 29,
+    "confidence": 90,
+    "reasoning": "The attack name is a legendary action, and the main component is \"Change Type,\" which is retained as the attack name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1266,
+    "original_name": "Aboleth - Legendary Action: Psychic Drain",
+    "original_length": 41,
+    "cleaned_name": "Legendary Action: Psychic Drain",
+    "cleaned_length": 31,
+    "confidence": 100,
+    "reasoning": "The attack name is a legendary action, and \"Psychic Drain\" is the specific attack being referenced.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1671,
+    "original_name": "Psychic Blades: Bonus Ranged Attack (DEX)",
+    "original_length": 41,
+    "cleaned_name": "Psychic Blades",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name is a specific ability and does not include extraneous information or modifiers that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1672,
+    "original_name": "Psychic Blades: Bonus Ranged Attack (STR)",
+    "original_length": 41,
+    "cleaned_name": "Psychic Blades",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name \"Psychic Blades\" is the primary weapon/attack name, and the additional details in parentheses do not alter the core name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1993,
+    "original_name": "Nine Lives Stealer Longsword (Etri Feiro)",
+    "original_length": 41,
+    "cleaned_name": "Nine Lives Stealer Longsword",
+    "cleaned_length": 28,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon name \"Longsword\" and the important modifier \"Nine Lives Stealer,\" while removing the character name in parentheses.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2144,
+    "original_name": "Bag of Acid (0.001% power) (Recharge 5-6)",
+    "original_length": 41,
+    "cleaned_name": "Bag of Acid",
+    "cleaned_length": 11,
+    "confidence": 95,
+    "reasoning": "The original attack name primarily consists of the weapon/attack name \"Bag of Acid,\" with the additional details about power and recharge being extraneous information that does not alter the core name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2574,
+    "original_name": "Legendary Action: Black Dragon Head: Bite",
+    "original_length": 41,
+    "cleaned_name": "Legendary Action: Bite",
+    "cleaned_length": 22,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action, and \"Bite\" is the specific attack being referenced.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2578,
+    "original_name": "Legendary Action: Green Dragon Head: Bite",
+    "original_length": 41,
+    "cleaned_name": "Legendary Action: Bite",
+    "cleaned_length": 22,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action and the primary attack is \"Bite,\" which is retained as the weapon/attack name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2582,
+    "original_name": "Legendary Action: White Dragon Head: Bite",
+    "original_length": 41,
+    "cleaned_name": "Legendary Action: Bite",
+    "cleaned_length": 22,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action, and \"Bite\" is the actual attack name extracted from the verbose description.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2988,
+    "original_name": "Bite (Giant Snapping Turtle (Bear Druid))",
+    "original_length": 41,
+    "cleaned_name": "Bite",
+    "cleaned_length": 4,
+    "confidence": 90,
+    "reasoning": "The attack name is straightforward and does not contain any additional modifiers or player notes.",
+    "status": "success"
+  },
+  {
+    "attack_id": 366,
+    "original_name": "Master Marksman (Percival Firn \"Pierce\")",
+    "original_length": 40,
+    "cleaned_name": "Master Marksman",
+    "cleaned_length": 15,
+    "confidence": 90,
+    "reasoning": "The attack name suggests a specific skill or ability rather than a traditional weapon, but it is still a recognized attack name in D&D.",
+    "status": "success"
+  },
+  {
+    "attack_id": 469,
+    "original_name": "Double-Bladed Scimitar +3 (Bonus Action)",
+    "original_length": 40,
+    "cleaned_name": "Double-Bladed Scimitar +3",
+    "cleaned_length": 25,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon name \"Double-Bladed Scimitar\" and retains the important modifier \"+3\" while removing the bonus action note.",
+    "status": "success"
+  },
+  {
+    "attack_id": 474,
+    "original_name": "Fighting Style: Unarmed Fighting (armed)",
+    "original_length": 40,
+    "cleaned_name": "Unarmed Strike",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name specifies \"Unarmed Fighting\" which directly translates to \"Unarmed Strike\" in D&D terminology, and the additional \"(armed)\" does not affect the weapon name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1166,
+    "original_name": "2-Handed Dragon\u2019s Wrath Weapon (Wakened)",
+    "original_length": 40,
+    "cleaned_name": "Dragon\u2019s Wrath Weapon (2-Handed)",
+    "cleaned_length": 32,
+    "confidence": 90,
+    "reasoning": "The attack name includes \"2-Handed,\" which is mechanically important, and \"Dragon\u2019s Wrath Weapon\" is the primary name of the weapon.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1675,
+    "original_name": "Psychic Blades: Bonus Melee Attack (DEX)",
+    "original_length": 40,
+    "cleaned_name": "Psychic Blades",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name is a specific ability and does not contain any extraneous player notes or character names.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1676,
+    "original_name": "Psychic Blades: Bonus Melee Attack (STR)",
+    "original_length": 40,
+    "cleaned_name": "Psychic Blades",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name \"Psychic Blades\" is the primary weapon/attack name, and the additional details in parentheses do not alter the core name.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1889,
+    "original_name": "2-Handed  Kamaitachi\u2019s Eteched Katana +1",
+    "original_length": 40,
+    "cleaned_name": "Kamaitachi\u2019s Eteched Katana +1",
+    "cleaned_length": 30,
+    "confidence": 95,
+    "reasoning": "The attack name includes the weapon name and a modifier, and there are no extraneous notes or character names present. The \"2-Handed\" designation is not included as it does not affect the weapon's identity.",
+    "status": "success"
+  },
+  {
+    "attack_id": 1979,
+    "original_name": "Stirring Dragon-Touched Focus (Metallic)",
+    "original_length": 40,
+    "cleaned_name": "Stirring Dragon-Touched Focus",
+    "cleaned_length": 29,
+    "confidence": 90,
+    "reasoning": "The attack name appears to be a specific weapon or magical focus without any additional player notes or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2058,
+    "original_name": "Deathshock Orb (1/Day). (Lightning Half)",
+    "original_length": 40,
+    "cleaned_name": "Deathshock Orb",
+    "cleaned_length": 14,
+    "confidence": 95,
+    "reasoning": "The attack name is extracted directly from the original, as it is the primary identifier of the attack without any additional modifiers or explanations.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2315,
+    "original_name": "Staff of Swarming Insects (Marius Graal)",
+    "original_length": 40,
+    "cleaned_name": "Staff of Swarming Insects",
+    "cleaned_length": 25,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Staff of Swarming Insects\" without any additional modifiers or player notes.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2355,
+    "original_name": "Bite (Spenser the Ancient Silver Dragon)",
+    "original_length": 40,
+    "cleaned_name": "Bite",
+    "cleaned_length": 4,
+    "confidence": 95,
+    "reasoning": "The attack name is straightforward and does not contain any additional modifiers or character names that need to be removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2356,
+    "original_name": "Claw (Spenser the Ancient Silver Dragon)",
+    "original_length": 40,
+    "cleaned_name": "Claw",
+    "cleaned_length": 4,
+    "confidence": 100,
+    "reasoning": "The attack name is straightforward and consists solely of the weapon/attack name without any additional modifiers or character names.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2357,
+    "original_name": "Tail (Spenser the Ancient Silver Dragon)",
+    "original_length": 40,
+    "cleaned_name": "Tail",
+    "cleaned_length": 4,
+    "confidence": 95,
+    "reasoning": "The attack name is straightforward and does not contain any extraneous information or modifiers that need to be retained.",
+    "status": "success"
+  },
+  {
+    "attack_id": 2576,
+    "original_name": "Legendary Action: Blue Dragon Head: Bite",
+    "original_length": 40,
+    "cleaned_name": "Legendary Action: Bite",
+    "cleaned_length": 22,
+    "confidence": 95,
+    "reasoning": "The attack name is a legendary action, and \"Bite\" is the specific attack being referenced.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3038,
+    "original_name": "Bad News (Exandria) (Solanna Bellanaris)",
+    "original_length": 40,
+    "cleaned_name": "Bad News",
+    "cleaned_length": 8,
+    "confidence": 90,
+    "reasoning": "The attack name \"Bad News\" is retained as it appears to be the actual weapon or attack name, while the additional details in parentheses are removed.",
+    "status": "success"
+  },
+  {
+    "attack_id": 3043,
+    "original_name": "Flame Tongue Rapier (Solanna Bellanaris)",
+    "original_length": 40,
+    "cleaned_name": "Flame Tongue Rapier",
+    "cleaned_length": 19,
+    "confidence": 100,
+    "reasoning": "The attack name is clearly identified as \"Flame Tongue Rapier\" without any additional player notes or character names.",
+    "status": "success"
+  }
+]

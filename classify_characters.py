@@ -55,13 +55,17 @@ class CharacterClassifier:
         """
         Apply heuristic rules to classify character.
         Returns (classification, confidence) or (None, 0.0) if uncertain.
+        
+        CORE ASSUMPTION: Any character with class + race + proper name in a combat 
+        encounter should be PC by default (combat-ready = playable character).
         """
         
-        # Rule 1: Obvious non-characters
-        if name in ['DM', 'dm', 'Map', 'map', 'Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']:
+        # Rule 1: Obvious non-characters (meta/system tokens)
+        if name in ['DM', 'dm', 'Map', 'map', 'Environment', 'Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']:
             return ('Other', 1.0)
         
-        # Rule 2: Coded monster/NPC names (MA1, AS3, DLoT1, etc.)
+        # Rule 2: Coded monster names (MA1, AS3, DLoT1, SK2, WE1, etc.)
+        # HIGH CONFIDENCE - abbreviation pattern indicates monster tracking system
         if re.match(r'^[A-Z]{2,4}\d+$', name):
             return ('Monster', 0.95)
         
@@ -69,32 +73,40 @@ class CharacterClassifier:
         if len(name) <= 3 and name.isupper():
             return ('Monster', 0.85)
         
-        # Rule 4: No class, no race, few appearances = likely monster/summon
+        # Rule 4: Monster-like names (contains spaces and numbers)
+        # e.g., "Goblin 2", "Orc Warrior 1" - HIGH CONFIDENCE
+        if re.search(r'\d', name) and ' ' in name:
+            return ('Monster', 0.90)
+        
+        # Rule 5: CORE PC RULE - Has class AND race = PC
+        # ASSUMPTION: If character has both class and race data, they're a playable 
+        # character with a full character sheet, not an NPC or monster
+        if class_val and race:
+            # More appearances = higher confidence
+            if appearances > 50:
+                return ('PC', 0.90)
+            elif appearances > 20:
+                return ('PC', 0.80)
+            else:
+                # Even with few appearances, class+race indicates PC
+                return ('PC', 0.75)
+        
+        # Rule 6: Has class but no race = likely still PC (race might be missing from data)
+        if class_val and appearances >= 5:
+            return ('PC', 0.70)
+        
+        # Rule 7: No class, no race, few appearances = likely monster/summon
         if not class_val and not race and appearances < 10:
             return ('Monster', 0.80)
         
-        # Rule 5: Strong PC indicators
-        if class_val and race and appearances > 50:
-            # Has full character sheet data and active
-            if description and len(description) > 50:
-                return ('PC', 0.90)
-            else:
-                return ('PC', 0.75)
+        # Rule 8: Has race but no class, moderate appearances = NPC
+        if race and not class_val and appearances > 10:
+            return ('NPC', 0.65)
         
-        # Rule 6: Moderate PC indicators
-        if class_val and race and appearances > 20:
-            return ('PC', 0.70)
+        # Uncertain - default to NPC for remaining edge cases
+        if appearances >= 3:
+            return ('NPC', 0.50)
         
-        # Rule 7: Has class but low activity = might be NPC ally
-        if class_val and appearances < 20:
-            return ('NPC', 0.60)
-        
-        # Rule 8: Monster-like names (contains spaces and numbers)
-        if re.search(r'\d', name) and ' ' in name:
-            # e.g., "Goblin 2", "Orc Warrior 1"
-            return ('Monster', 0.75)
-        
-        # Uncertain - needs LLM
         return (None, 0.0)
         
     def classify_with_llm(self, name: str, class_val: Optional[str], race: Optional[str], 
@@ -171,23 +183,22 @@ Format: "Classification: [TYPE] (Confidence: [0-100]%)"
     def classify_character(self, char_id: int, name: str, class_val: Optional[str], 
                           race: Optional[str], appearances: int) -> Tuple[str, float]:
         """
-        Classify a single character using heuristics first, then LLM if needed.
+        Classify a single character using heuristics only (skip LLM for speed).
         Returns (classification, confidence).
         """
         
         # Description not stored in our schema - set to None
         description = None
         
-        # Try heuristics first
+        # Use heuristics only
         classification, confidence = self.classify_heuristic(name, class_val, race, appearances, description)
         
-        if classification:
-            self.stats['heuristic'] += 1
-            return (classification, confidence)
+        # If no confident classification, mark as Unknown
+        if not classification:
+            classification = 'Unknown'
+            confidence = 0.0
         
-        # Use LLM for uncertain cases
-        classification, confidence = self.classify_with_llm(name, class_val, race, appearances, description)
-        self.stats['llm'] += 1
+        self.stats['heuristic'] += 1
         return (classification, confidence)
         
     def classify_all(self):
