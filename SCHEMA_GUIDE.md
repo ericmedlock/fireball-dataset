@@ -15,11 +15,13 @@
 ### Core Tables for Dashboards:
 1. **actions** (3,443 rows) - Combat actions/turns [FACT TABLE]
 2. **characters** (1,895 rows) - Unique D&D characters [DIMENSION]
-3. **character_snapshots** (61,724 rows) - Character states before/after actions [FACT TABLE]
+3. **character_snapshots** (61,093 rows) - Character states before/after actions [FACT TABLE - CLEANED]
 4. **spells** (825 rows) - Spell catalog [DIMENSION]
-5. **attacks** (3,179 rows) - Attack catalog [DIMENSION]
+5. **attacks** (3,135 rows) - Attack catalog [DIMENSION]
 6. **damage_events** (2,760 rows) - Damage dealt per action [FACT TABLE]
 7. **spell_casts** (638 rows) - Spells actually cast [FACT TABLE]
+
+**Note**: character_snapshots cleaned Feb 11, 2026 - only official D&D 5e classes retained (14 classes total)
 
 ### Quick Dashboard Ideas:
 - **Character Leaderboard**: Join `characters` → `damage_events` → aggregate by character
@@ -150,7 +152,7 @@ actions.action_id = spell_casts.action_id
 
 ### 3. `character_snapshots` (Fact Table)
 **Purpose**: Character state at specific moments (before/after actions)  
-**Rows**: 61,724  
+**Rows**: 61,093 (cleaned - non-standard classes removed Feb 11, 2026)  
 **Primary Key**: `snapshot_id`
 
 | Column | Type | Description | Example | Nulls? |
@@ -163,15 +165,26 @@ actions.action_id = spell_casts.action_id
 | `hp_max` | INTEGER | Maximum hit points | 121 | YES |
 | `hp_percentage` | REAL | Current/Max * 100 | 100.0 | YES |
 | `health_status` | TEXT | Parsed from HP string | "Healthy", "Bloodied", "Critical" | YES |
-| `class_text` | TEXT | Raw class string | "Artificer 11" | YES |
-| `class_primary` | TEXT | First/primary class | "Artificer" | YES |
-| `class_level` | INTEGER | Level of primary class | 11 | YES |
+| `class_text` | TEXT | Raw class string from source | "Champion Fighter 12" | YES |
+| `class_primary` | TEXT | **Base class only** (14 official classes) | "Fighter" | YES |
+| `class_level` | INTEGER | Level of primary class | 12 | YES |
+| `class_archetype` | TEXT | **Subclass/archetype** (NEW) | "Champion" | YES |
 | `race` | TEXT | Character race | "Harengon" | YES |
 | `controller_id` | TEXT | Discord user ID | "278369453363180276" | YES |
 
 **Foreign Keys**:
 - `action_id` → `actions.action_id`
 - `character_id` → `characters.character_id`
+
+**Class Filtering (Feb 11, 2026)**:
+- **Official D&D 5e classes only**: Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard, Artificer, Blood Hunter
+- **Removed classes**: Witch, Twin, SoulBinder, MagicalGirl, Magister, Warlord, Deathknight, SwordSaint, Yaeger, Gunslinger, Death Knight, Shaman, Gunbreaker (631 snapshots, 1.02%)
+- **Archetype extraction**: 
+  - `"Champion Fighter 12"` → class_primary="Fighter", class_level=12, class_archetype="Champion"
+  - `"Druid (Circle of Wildfire) 5"` → class_primary="Druid", class_level=5, class_archetype="Circle of Wildfire"
+  - `"Sorcerer (Heroic Lineage) 1"` → class_primary="Sorcerer", class_level=1, class_archetype="Heroic Lineage"
+- **Multiclass handling**: Takes first class only
+  - `"Wizard 8/Artificer 3"` → class_primary="Wizard", class_level=8
 
 **Snapshot Types Explained**:
 - `"before"`: Character status at start of combat round
@@ -188,7 +201,8 @@ actions.action_id = spell_casts.action_id
 **Dashboard Uses**:
 - Track HP changes over time: compare `snapshot_type = 'before'` vs `'after'`
 - Filter by `hp_percentage < 50` for "Bloodied" analysis
-- Group by `class_primary` for class-based metrics
+- **Filter by `class_primary`** for class-based metrics (always a base class, never a compound)
+- **Filter by `class_archetype`** for subclass analysis (Champion, Circle of Wildfire, etc.)
 - Join to junction tables to see spells/attacks/effects at this moment
 
 ---

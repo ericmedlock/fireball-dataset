@@ -8,75 +8,140 @@ This repository contains scripts to:
 1. Download the full FIREBALL dataset (153,829 records, 2.3GB)
 2. Validate JSON formatting
 3. Split into manageable chunks
-4. Convert to CSV format
+4. **Load into SQLite with data normalization & cleaning** ⭐ RECOMMENDED
 5. **Convert to Tableau Hyper format for visualization**
+6. Convert to CSV format (legacy)
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Recommended: SQLite → Hyper)
 
-### Install Dependencies
+### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Convert JSON to Tableau Hyper
+### 2. Load JSON to SQLite
 ```bash
-# Convert a single file
-python json_to_hyper_direct.py output/fireball_data.json
-
-# Convert a split file
-python json_to_hyper_direct.py output/split/fireball_part_001_of_045.json
-
-# Custom output name and chunk size
-python json_to_hyper_direct.py input.json output.hyper 2000
+python load_to_sqlite.py
 ```
+**Features:**
+- ✅ Normalized star schema (dimension + fact tables)
+- ✅ Automatic class filtering (14 official D&D classes only)
+- ✅ Archetype extraction (separates "Champion Fighter" → Fighter + Champion)
+- ✅ Character aggregate calculation
+- ✅ Data quality validation
+- ✅ ~31 MB per JSON file
+
+### 3. Export to Tableau Hyper
+```bash
+python sqlite_to_hyper.py
+```
+**Output:** `fireball.hyper` (1.8 MB, 100% data fidelity, 90% compression)
+
+### 4. Optional: Class Filtering Post-Processing
+If you already have a database loaded before Feb 11, 2026:
+```bash
+python clean_nonstandard_classes.py
+```
+This will remove non-standard homebrew classes and extract archetypes.
+
+---
+
+## 📊 SQLite Workflow (Recommended)
+
+### Why SQLite?
+- **Clean dimensions**: Only 14 official D&D classes (no homebrew pollution)
+- **Archetype extraction**: Separates subclasses into dedicated field
+- **Normalized schema**: Optimized for Tableau relationships
+- **Character aggregates**: Pre-calculated metrics (most_common_class, total_appearances)
+- **Data quality**: Validated and cleaned during load
+- **Queryable**: Test queries before Tableau
+
+### Class Filtering
+**Kept (14 classes):**
+- Core PHB: Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard
+- Eberron: Artificer
+- Critical Role: Blood Hunter
+
+**Removed:** Witch, Twin, SoulBinder, MagicalGirl, Magister, Warlord, etc. (13 homebrew classes)
+
+See [CLASS_FILTERING_COMPLETE.md](CLASS_FILTERING_COMPLETE.md) for details.
+
+### Database Schema
+- **Dimension Tables**: characters, spells, attacks, effects
+- **Fact Tables**: actions, character_snapshots, spell_casts, damage_events
+- **Junction Tables**: character_snapshot_spells, character_snapshot_attacks, character_snapshot_effects
+
+See [SCHEMA_GUIDE.md](SCHEMA_GUIDE.md) for complete documentation.
+
+---
 
 ## 📚 Available Scripts
 
-### 1. **json_to_hyper_direct.py** ⭐ RECOMMENDED
-Convert JSON to Tableau Hyper format with memory-efficient streaming.
+### RECOMMENDED: SQLite Workflow ⭐
+
+#### **load_to_sqlite.py** - JSON to SQLite
+Load JSON files into normalized SQLite database with automatic cleaning.
 
 **Features:**
-- ✅ Auto-installs missing dependencies
-- ✅ Memory-efficient streaming parser (handles 2.3GB+ files)
+- ✅ Star schema with dimension/fact tables
+- ✅ Automatic class filtering (14 official classes)
+- ✅ Archetype extraction (class_archetype field)
+- ✅ Character aggregate calculation
+- ✅ Incremental loading support
+
+**Usage:**
+```bash
+python load_to_sqlite.py
+```
+**Output:** `fireball.db` (31 MB per JSON file)
+
+#### **sqlite_to_hyper.py** - SQLite to Hyper
+Convert SQLite database to Tableau Hyper format.
+
+**Usage:**
+```bash
+python sqlite_to_hyper.py
+```
+**Output:** `fireball.hyper` (1.8 MB, 90% compression)
+
+#### **clean_nonstandard_classes.py** - Post-Processing
+Remove non-standard classes from existing database.
+
+**Usage:**
+```bash
+python clean_nonstandard_classes.py
+```
+
+---
+
+### LEGACY: Direct JSON to Hyper (Flattened)
+
+#### **json_to_hyper_direct.py**
+Convert JSON directly to Tableau Hyper format (no normalization).
+
+**Note:** This creates a flattened single-table structure. For better analysis, use the SQLite workflow instead.
+
+**Features:**
+- ✅ Memory-efficient streaming parser
 - ✅ Flattens nested JSON structures
-- ✅ Direct Hyper API (most reliable)
-- ✅ Progress bars and detailed logging
 - ✅ 99%+ compression ratio
+- ⚠️ No data normalization or cleaning
 
 **Usage:**
 ```bash
 python json_to_hyper_direct.py <input.json> [output.hyper] [chunk_size]
 ```
 
-**Examples:**
-```bash
-# Full dataset (2.3GB)
-python json_to_hyper_direct.py output/fireball_data.json fireball.hyper
-
-# Single split file (50MB)
-python json_to_hyper_direct.py output/split/fireball_part_001_of_045.json
-
-# Custom chunk size for 16GB+ RAM
-python json_to_hyper_direct.py output/fireball_data.json fireball.hyper 5000
-```
-
-**Memory Recommendations:**
-- **16GB+ RAM**: `chunk_size=5000`
-- **8GB RAM**: `chunk_size=1000` (default)
-- **4GB RAM**: `chunk_size=500`
-
-### 2. fireball.py
+#### **fireball.py** - Dataset Download
 Original HuggingFace dataset loader with standalone download mode.
 
 **Usage:**
 ```bash
-# Download full dataset
 python fireball.py
 ```
-
 **Output:** `output/fireball_data.json` (2.3GB, 153,829 records)
 
-### 3. validate_json.py
+#### **validate_json.py** - Validation
 Validate JSON files for proper formatting.
 
 **Usage:**
@@ -84,32 +149,16 @@ Validate JSON files for proper formatting.
 python validate_json.py [path/to/file.json]
 ```
 
-### 4. split_dataset.py
+#### **split_dataset.py** - File Splitting
 Split large JSON into manageable chunks.
 
 **Usage:**
 ```bash
 python split_dataset.py
 ```
-
 **Output:** 45 files of ~50MB each in `output/split/`
 
-### 5. json_to_csv.py
-Convert JSON to CSV format.
-
-**Usage:**
-```bash
-# Single file
-python json_to_csv.py output/split/fireball_part_001_of_045.json
-
-# All files in directory
-python json_to_csv.py --all
-
-# Custom directory
-python json_to_csv.py --dir output/split/ csv_output/
-```
-
-## 📊 Data Structure
+---
 
 Each record in the FIREBALL dataset contains:
 

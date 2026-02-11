@@ -294,21 +294,27 @@ class FireballDBLoader:
         return None, None, None, None
         
     def is_official_class(self, class_name: str) -> bool:
-        """Check if a class is an official WotC class."""
+        """Check if a class is an official WotC class or allowed homebrew (Blood Hunter)."""
+        if class_name is None:
+            return True  # Allow None for NPCs/monsters without classes
         official_classes = {
             'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
-            'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter'
+            'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter', 'Bloodhunter'
         }
         return class_name in official_classes
 
     def parse_class(self, class_text: Optional[str]) -> Tuple[Optional[str], Optional[int], Optional[str]]:
-        """Parse class string like 'Witch 17' or 'Champion Fighter 12' into primary class, level, and archetype.
+        """Parse class string into primary class, level, and archetype.
+        
+        Primary class must always be a base class name: 'Fighter', 'Druid', 'Paladin', etc.
+        Archetype is extracted into separate field: 'Champion', 'Circle of Wildfire', etc.
         
         Examples:
             'Fighter 12' -> ('Fighter', 12, None)
             'Champion Fighter 12' -> ('Fighter', 12, 'Champion')
-            'Eldritch Knight Fighter 8' -> ('Fighter', 8, 'Eldritch Knight')
-            'Ranger 12/Cleric 3' -> ('Ranger', 12, None)  # multiclass
+            'Druid (Circle of Wildfire) 5' -> ('Druid', 5, 'Circle of Wildfire')
+            'Sorcerer (Heroic Lineage) 1' -> ('Sorcerer', 1, 'Heroic Lineage')
+            'Ranger 12/Cleric 3' -> ('Ranger', 12, None)  # multiclass - take first
         """
         if not class_text or class_text == "":
             return None, None, None
@@ -318,45 +324,46 @@ class FireballDBLoader:
         if parts:
             first_class = parts[0].strip()
             
-            # Common D&D base classes to look for
+            # Official D&D base classes
             base_classes = [
                 'Fighter', 'Wizard', 'Rogue', 'Paladin', 'Ranger', 'Cleric',
                 'Barbarian', 'Monk', 'Druid', 'Warlock', 'Sorcerer', 'Bard',
                 'Artificer', 'Blood Hunter'
             ]
             
-            # Try to match pattern: "[Archetype] BaseClass Level"
+            # Try each base class in order
             for base_class in base_classes:
-                # Pattern: "Something BaseClass Number"
-                archetype_pattern = rf'(.+?)\s+{base_class}\s+(\d+)'
-                match = re.match(archetype_pattern, first_class, re.IGNORECASE)
+                # Pattern 1: "BaseClass (Archetype) Level" - e.g., "Druid (Circle of Wildfire) 5"
+                paren_pattern = rf'^{base_class}\s+\(([^)]+)\)\s+(\d+)$'
+                match = re.match(paren_pattern, first_class, re.IGNORECASE)
                 if match:
                     archetype = match.group(1).strip()
                     level = int(match.group(2))
-                    if self.is_official_class(base_class):
-                        return base_class, level, archetype
-                    else:
-                        return None, None, None
+                    return base_class, level, archetype
                 
-                # Pattern: "BaseClass Number" (no archetype)
-                simple_pattern = rf'{base_class}\s+(\d+)'
+                # Pattern 2: "Archetype BaseClass Level" - e.g., "Champion Fighter 12"
+                prefix_pattern = rf'^(.+?)\s+{base_class}\s+(\d+)$'
+                match = re.match(prefix_pattern, first_class, re.IGNORECASE)
+                if match:
+                    archetype = match.group(1).strip()
+                    level = int(match.group(2))
+                    return base_class, level, archetype
+                
+                # Pattern 3: "BaseClass Level" - e.g., "Fighter 12" (no archetype)
+                simple_pattern = rf'^{base_class}\s+(\d+)$'
                 match = re.match(simple_pattern, first_class, re.IGNORECASE)
                 if match:
                     level = int(match.group(1))
-                    if self.is_official_class(base_class):
-                        return base_class, level, None
-                    else:
-                        return None, None, None
+                    return base_class, level, None
             
-            # Fallback: Generic pattern "ClassName Level"
-            match = re.match(r'([A-Za-z\s]+)\s+(\d+)', first_class)
+            # No official class found - check if it's a non-standard class we should reject
+            # Fallback: Generic pattern "ClassName Level" for non-standard classes
+            match = re.match(r'^([A-Za-z\s]+)\s+(\d+)$', first_class)
             if match:
                 class_name = match.group(1).strip()
                 level = int(match.group(2))
-                if self.is_official_class(class_name):
-                    return class_name, level, None
-                else:
-                    return None, None, None
+                # Return it - will be filtered by is_official_class() check later
+                return class_name, level, None
                 
         return None, None, None
         
@@ -442,12 +449,20 @@ class FireballDBLoader:
         # Parse class (now returns archetype too)
         class_primary, class_level, class_archetype = self.parse_class(character_data.get('class'))
         
+        # Filter out non-standard classes (but keep None for NPCs/monsters and Blood Hunter variants)
+        if class_primary is not None and not self.is_official_class(class_primary):
+            return None
+        
+        # Normalize Bloodhunter to Blood Hunter
+        if class_primary == 'Bloodhunter':
+            class_primary = 'Blood Hunter'
+        
         # Validate race before inserting snapshot
         race_value = self.validate_race(
             character_data['name'],
             character_data.get('race')
         )
-        
+
         # Insert snapshot
         self.cursor.execute("""
             INSERT INTO character_snapshots (
@@ -874,9 +889,10 @@ class FireballDBLoader:
         # Query to count snapshots with non-official classes
         self.cursor.execute("""
             SELECT COUNT(*) FROM character_snapshots
-            WHERE class_primary NOT IN (
+            WHERE class_primary IS NOT NULL
+            AND class_primary NOT IN (
                 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
-                'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter'
+                'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter', 'Bloodhunter'
             )
         """)
         discarded_snapshots = self.cursor.fetchone()[0]

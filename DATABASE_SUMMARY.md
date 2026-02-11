@@ -17,7 +17,7 @@
 
 ### Fact Tables
 - **actions** (3,443 combat actions)
-- **character_snapshots** (61,724 character state snapshots)
+- **character_snapshots** (61,093 character state snapshots - cleaned)
 - **spell_casts** (638 spell casting events)
 - **damage_events** (2,760 damage instances)
 
@@ -35,10 +35,10 @@
    - All 964 current_actor_ids reference valid characters
    
 2. **Referential Integrity: Snapshots → Actions**
-   - All 61,724 snapshots reference valid actions
+   - All 61,093 snapshots reference valid actions
    
 3. **Referential Integrity: Snapshots → Characters**
-   - All 61,724 snapshots reference valid characters
+   - All 61,093 snapshots reference valid characters
 
 ### ⚠ Data Quality Note (1/4)
 4. **HP Value Range (392 edge cases)**
@@ -46,10 +46,12 @@
    - **This is VALID**: D&D 5e allows Temporary HP to exceed maximum
    - Example: Character with 110 max HP + 5 temporary HP = 115 current HP
    
-5. **Class Parsing (139 edge cases)**
-   - 139 complex multiclass strings couldn't be fully parsed
-   - Falls back to storing raw text (still usable for analysis)
-   - Example: "Wizard 8/Artificer 3/Blood Hunter 2" → captures "Wizard" + level 8
+5. **Class Filtering (COMPLETE - Feb 11, 2026)**
+   - **Filtered to 14 official D&D 5e classes** (+ Blood Hunter)
+   - **Removed 631 snapshots** (1.02%) with non-standard classes (Witch, Twin, SoulBinder, etc.)
+   - **Archetype extraction**: Separates "Champion Fighter 12" → class=Fighter, archetype=Champion
+   - **Pattern support**: "Druid (Circle of Wildfire) 5" → class=Druid, archetype=Circle of Wildfire
+   - Example multiclass: "Wizard 8/Artificer 3" → captures "Wizard" + level 8 (first class only)
 
 ---
 

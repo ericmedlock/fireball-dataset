@@ -14,15 +14,25 @@
 - Added `populate_character_aggregates()` method
 - Automatically called after loading each JSON file
 - Calculates aggregates from character_snapshots table using:
-  - `most_common_class`: Mode of class_primary across snapshots
+  - `most_common_class`: Mode of class_primary across snapshots (14 official classes only)
   - `most_common_race`: Mode of race across snapshots
   - `first_seen_action_id`: MIN(action_id) from snapshots
   - `last_seen_action_id`: MAX(action_id) from snapshots
   - `total_appearances`: COUNT(snapshots) for character
 
-### 3. Regenerated Hyper File
+### 3. Class Filtering & Archetype Extraction (Feb 11, 2026)
+**Script:** `clean_nonstandard_classes.py`
+- Filtered to 14 official D&D 5e classes (+ Blood Hunter)
+- Removed 631 snapshots (1.02%) with non-standard homebrew classes
+- Extracted archetypes to separate `class_archetype` field
+- `class_primary` now always contains base class only (Fighter, Druid, etc.)
+- See [CLASS_FILTERING_COMPLETE.md](CLASS_FILTERING_COMPLETE.md) for details
+
+### 4. Regenerated Hyper File
 **File:** `fireball.hyper` (1.8 MB)
-- Now includes populated character aggregate fields
+- Includes populated character aggregate fields
+- Clean class dimensions (14 official classes)
+- Archetype data in separate field
 - Ready for Tableau with NO null columns in dimensions
 
 ---
