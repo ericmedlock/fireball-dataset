@@ -293,6 +293,14 @@ class FireballDBLoader:
             return current, max_hp, percentage, status
         return None, None, None, None
         
+    def is_official_class(self, class_name: str) -> bool:
+        """Check if a class is an official WotC class."""
+        official_classes = {
+            'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
+            'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter'
+        }
+        return class_name in official_classes
+
     def parse_class(self, class_text: Optional[str]) -> Tuple[Optional[str], Optional[int], Optional[str]]:
         """Parse class string like 'Witch 17' or 'Champion Fighter 12' into primary class, level, and archetype.
         
@@ -325,21 +333,32 @@ class FireballDBLoader:
                 if match:
                     archetype = match.group(1).strip()
                     level = int(match.group(2))
-                    return base_class, level, archetype
+                    if self.is_official_class(base_class):
+                        return base_class, level, archetype
+                    else:
+                        return None, None, None
                 
                 # Pattern: "BaseClass Number" (no archetype)
                 simple_pattern = rf'{base_class}\s+(\d+)'
                 match = re.match(simple_pattern, first_class, re.IGNORECASE)
                 if match:
                     level = int(match.group(1))
-                    return base_class, level, None
+                    if self.is_official_class(base_class):
+                        return base_class, level, None
+                    else:
+                        return None, None, None
             
             # Fallback: Generic pattern "ClassName Level"
             match = re.match(r'([A-Za-z\s]+)\s+(\d+)', first_class)
             if match:
-                return match.group(1).strip(), int(match.group(2)), None
+                class_name = match.group(1).strip()
+                level = int(match.group(2))
+                if self.is_official_class(class_name):
+                    return class_name, level, None
+                else:
+                    return None, None, None
                 
-        return class_text, None, None
+        return None, None, None
         
     def get_or_create_character(self, name: str, controller_id: str = None) -> int:
         """Get character_id or create new character."""
@@ -389,25 +408,6 @@ class FireballDBLoader:
         return self.cursor.lastrowid
         
     def get_or_create_effect(self, effect_name: str) -> int:
-        """Get effect_id or create new effect."""
-        effect_name = effect_name.strip()
-        if not effect_name:
-            return None
-            
-        self.cursor.execute("SELECT effect_id FROM effects WHERE effect_name = ?", (effect_name,))
-        row = self.cursor.fetchone()
-        if row:
-            return row[0]
-            
-        self.cursor.execute("INSERT INTO effects (effect_name) VALUES (?)", (effect_name,))
-        return self.cursor.lastrowid
-        
-    def parse_damage_from_automation(self, automation_text: str) -> List[Tuple[str, int]]:
-        """Extract damage events from automation results."""
-        damages = []
-        if not automation_text:
-            return damages
-            
         # Pattern: "X took Y damage"
         matches = re.findall(r'(\w+)\s+took\s+(\d+)\s+damage', automation_text, re.IGNORECASE)
         for target, amount in matches:
@@ -862,6 +862,36 @@ class FireballDBLoader:
         if self.conn:
             self.conn.close()
             print(f"\n✓ Database connection closed")
+    
+    def analyze_discarded_classes(self):
+        """Analyze the percentage of data that will be discarded based on class filtering."""
+        print("\nAnalyzing discarded classes...")
+
+        # Query to count total character snapshots
+        self.cursor.execute("SELECT COUNT(*) FROM character_snapshots")
+        total_snapshots = self.cursor.fetchone()[0]
+
+        # Query to count snapshots with non-official classes
+        self.cursor.execute("""
+            SELECT COUNT(*) FROM character_snapshots
+            WHERE class_primary NOT IN (
+                'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
+                'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard', 'Artificer', 'Blood Hunter'
+            )
+        """)
+        discarded_snapshots = self.cursor.fetchone()[0]
+
+        # Calculate percentage
+        if total_snapshots > 0:
+            discarded_percentage = (discarded_snapshots / total_snapshots) * 100
+        else:
+            discarded_percentage = 0
+
+        print(f"Total Snapshots: {total_snapshots}")
+        print(f"Discarded Snapshots: {discarded_snapshots}")
+        print(f"Percentage Discarded: {discarded_percentage:.2f}%")
+
+        return discarded_percentage
 
 def main():
     """Main execution."""
@@ -923,4 +953,18 @@ def main():
         loader.close()
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Load FIREBALL JSON data into SQLite database.")
+    parser.add_argument("--analyze-discarded-classes", action="store_true", help="Analyze the percentage of data discarded due to class filtering.")
+    args = parser.parse_args()
+
+    loader = FireballDBLoader()
+    loader.connect()
+
+    if args.analyze_discarded_classes:
+        loader.analyze_discarded_classes()
+    else:
+        print("No valid arguments provided.")
+
+    loader.conn.close()
