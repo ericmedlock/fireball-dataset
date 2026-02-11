@@ -207,6 +207,7 @@ class FireballDBLoader:
                 class_text TEXT,
                 class_primary TEXT,
                 class_level INTEGER,
+                class_archetype TEXT,
                 race TEXT,
                 controller_id TEXT,
                 FOREIGN KEY (action_id) REFERENCES actions(action_id),
@@ -292,18 +293,53 @@ class FireballDBLoader:
             return current, max_hp, percentage, status
         return None, None, None, None
         
-    def parse_class(self, class_text: Optional[str]) -> Tuple[Optional[str], Optional[int]]:
-        """Parse class string like 'Witch 17' or 'Ranger 12/Cleric 3' into primary class and level."""
+    def parse_class(self, class_text: Optional[str]) -> Tuple[Optional[str], Optional[int], Optional[str]]:
+        """Parse class string like 'Witch 17' or 'Champion Fighter 12' into primary class, level, and archetype.
+        
+        Examples:
+            'Fighter 12' -> ('Fighter', 12, None)
+            'Champion Fighter 12' -> ('Fighter', 12, 'Champion')
+            'Eldritch Knight Fighter 8' -> ('Fighter', 8, 'Eldritch Knight')
+            'Ranger 12/Cleric 3' -> ('Ranger', 12, None)  # multiclass
+        """
         if not class_text or class_text == "":
-            return None, None
+            return None, None, None
             
         # Handle multiclass by taking first class
         parts = class_text.split('/')
         if parts:
-            match = re.match(r'([A-Za-z\s]+)\s+(\d+)', parts[0].strip())
+            first_class = parts[0].strip()
+            
+            # Common D&D base classes to look for
+            base_classes = [
+                'Fighter', 'Wizard', 'Rogue', 'Paladin', 'Ranger', 'Cleric',
+                'Barbarian', 'Monk', 'Druid', 'Warlock', 'Sorcerer', 'Bard',
+                'Artificer', 'Blood Hunter'
+            ]
+            
+            # Try to match pattern: "[Archetype] BaseClass Level"
+            for base_class in base_classes:
+                # Pattern: "Something BaseClass Number"
+                archetype_pattern = rf'(.+?)\s+{base_class}\s+(\d+)'
+                match = re.match(archetype_pattern, first_class, re.IGNORECASE)
+                if match:
+                    archetype = match.group(1).strip()
+                    level = int(match.group(2))
+                    return base_class, level, archetype
+                
+                # Pattern: "BaseClass Number" (no archetype)
+                simple_pattern = rf'{base_class}\s+(\d+)'
+                match = re.match(simple_pattern, first_class, re.IGNORECASE)
+                if match:
+                    level = int(match.group(1))
+                    return base_class, level, None
+            
+            # Fallback: Generic pattern "ClassName Level"
+            match = re.match(r'([A-Za-z\s]+)\s+(\d+)', first_class)
             if match:
-                return match.group(1).strip(), int(match.group(2))
-        return class_text, None
+                return match.group(1).strip(), int(match.group(2)), None
+                
+        return class_text, None, None
         
     def get_or_create_character(self, name: str, controller_id: str = None) -> int:
         """Get character_id or create new character."""
@@ -403,8 +439,8 @@ class FireballDBLoader:
         # Parse HP
         hp_current, hp_max, hp_pct, health_status = self.parse_hp(character_data.get('hp'))
         
-        # Parse class
-        class_primary, class_level = self.parse_class(character_data.get('class'))
+        # Parse class (now returns archetype too)
+        class_primary, class_level, class_archetype = self.parse_class(character_data.get('class'))
         
         # Validate race before inserting snapshot
         race_value = self.validate_race(
@@ -417,12 +453,12 @@ class FireballDBLoader:
             INSERT INTO character_snapshots (
                 action_id, character_id, snapshot_type,
                 hp_current, hp_max, hp_percentage, health_status,
-                class_text, class_primary, class_level, race, controller_id
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                class_text, class_primary, class_level, class_archetype, race, controller_id
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             action_id, character_id, snapshot_type,
             hp_current, hp_max, hp_pct, health_status,
-            character_data.get('class'), class_primary, class_level,
+            character_data.get('class'), class_primary, class_level, class_archetype,
             race_value, character_data.get('controller_id')
         ))
         snapshot_id = self.cursor.lastrowid

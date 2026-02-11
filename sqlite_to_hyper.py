@@ -117,6 +117,7 @@ class SQLiteToHyperConverter:
                 TableDefinition.Column('class_text', SqlType.text(), NULLABLE),
                 TableDefinition.Column('class_primary', SqlType.text(), NULLABLE),
                 TableDefinition.Column('class_level', SqlType.big_int(), NULLABLE),
+                TableDefinition.Column('class_archetype', SqlType.text(), NULLABLE),
                 TableDefinition.Column('race', SqlType.text(), NULLABLE),
                 TableDefinition.Column('controller_id', SqlType.text(), NULLABLE)
             ]
